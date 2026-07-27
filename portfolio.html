@@ -25,41 +25,62 @@
 </header>
 
 <main>
-<section class="subpage-hero portfolio-map-hero">
-  <div class="container">
-    <p class="section-kicker" data-tr="Dünya Çapında İş Birlikleri" data-en="Collaborations Around the World">Dünya Çapında İş Birlikleri</p>
-    <h1 data-tr="Dünyanın farklı noktalarında, markalar için hikayeler ürettik." data-en="We created stories for brands across the world.">Dünyanın farklı noktalarında, markalar için hikayeler ürettik.</h1>
-    <p data-tr="Bir ülkeye dokunarak o destinasyondaki markaları, proje özetlerini ve teslim kapsamlarını keşfedin." data-en="Select a country to explore its brands, project summaries and deliverables.">Bir ülkeye dokunarak o destinasyondaki markaları, proje özetlerini ve teslim kapsamlarını keşfedin.</p>
-  </div>
-</section>
-
-<section class="portfolio-world-section" id="global-projects">
-  <div class="container">
-    <div class="flat-map-shell">
-      <div class="flat-map-stage" id="interactiveMap">
-        <canvas id="flatMapCanvas" aria-label="Çalıştığımız ülkeleri gösteren etkileşimli dünya haritası"></canvas>
-        <div class="flat-map-markers" id="mapMarkers"></div>
-        <button class="flat-map-reset" id="resetMap" type="button" data-tr="Dünya görünümü" data-en="World view">Dünya görünümü</button>
-        <p class="flat-map-hint" data-tr="Bir noktaya dokunarak projeleri keşfedin" data-en="Tap a point to explore projects">Bir noktaya dokunarak projeleri keşfedin</p>
+<section class="portfolio-intro" id="global-projects">
+  <div class="container portfolio-intro-grid">
+    <div class="portfolio-intro-copy">
+      <p class="section-kicker" data-tr="Dünya Çapında İş Birlikleri" data-en="Collaborations Around the World">Dünya Çapında İş Birlikleri</p>
+      <h1 data-tr="Dünyanın farklı noktalarında markalar için hikayeler üretiyoruz." data-en="We create stories for brands across the world.">Dünyanın farklı noktalarında markalar için hikayeler üretiyoruz.</h1>
+      <p class="portfolio-intro-text" data-tr="Çalıştığımız ülkeleri ve projeleri haritada keşfedin veya video portfolyomuza göz atın." data-en="Explore the countries and projects we have worked on, or browse our video portfolio.">Çalıştığımız ülkeleri ve projeleri haritada keşfedin veya video portfolyomuza göz atın.</p>
+      <div class="portfolio-proof">
+        <div><strong>6</strong><span data-tr="Ülke" data-en="Countries">Ülke</span></div>
+        <div><strong>20+</strong><span data-tr="Marka" data-en="Brands">Marka</span></div>
+        <div><strong>100+</strong><span data-tr="İş Birliği" data-en="Collaborations">İş Birliği</span></div>
       </div>
-      <aside class="flat-country-panel" id="countryPanel" aria-live="polite">
-        <button class="panel-close" id="panelClose" type="button" aria-label="Kapat">×</button>
-        <p class="panel-kicker" data-tr="Seçili Destinasyon" data-en="Selected Destination">Seçili Destinasyon</p>
-        <h2 id="countryName"></h2>
-        <p id="countrySummary"></p>
-        <div class="country-stats">
-          <div><strong id="projectCount">0</strong><span data-tr="Proje" data-en="Projects">Proje</span></div>
-          <div><strong id="brandCount">0</strong><span data-tr="Marka" data-en="Brands">Marka</span></div>
-        </div>
-        <div class="country-projects" id="countryProjects"></div>
-      </aside>
+      <div class="portfolio-intro-actions">
+        <button class="button intro-map-button" type="button" data-focus-map data-tr="Haritada Keşfet" data-en="Explore the Map">Haritada Keşfet</button>
+        <a class="intro-video-link" href="#videos" data-tr="Videoları İncele ↓" data-en="Explore the Videos ↓">Videoları İncele ↓</a>
+      </div>
     </div>
-    <div class="map-summary portfolio-map-summary">
-      <div><strong>6</strong><span data-tr="Ülke" data-en="Countries">Ülke</span></div>
-      <div><strong>20+</strong><span data-tr="Marka" data-en="Brands">Marka</span></div>
-      <div><strong>100+</strong><span data-tr="İş Birliği" data-en="Collaborations">İş Birliği</span></div>
+
+    <div class="portfolio-map-wrap">
+      <div class="map-view-tabs" aria-label="Harita görünümü">
+        <button class="active" type="button" data-map-view="world" data-tr="Dünya" data-en="World">Dünya</button>
+        <button type="button" data-map-view="europe" data-tr="Avrupa & Kafkasya" data-en="Europe & Caucasus">Avrupa & Kafkasya</button>
+        <button type="button" data-map-view="mauritius">Mauritius</button>
+      </div>
+      <div class="flat-map-shell">
+        <div class="flat-map-stage" id="interactiveMap">
+          <canvas id="flatMapCanvas" aria-label="Çalıştığımız ülkeleri gösteren etkileşimli dünya haritası"></canvas>
+          <div class="flat-map-markers" id="mapMarkers"></div>
+          <div class="map-zoom-controls">
+            <button id="zoomOut" type="button" aria-label="Uzaklaştır">−</button>
+            <button id="resetMap" type="button" aria-label="Dünya görünümüne dön">⌂</button>
+            <button id="zoomIn" type="button" aria-label="Yakınlaştır">+</button>
+          </div>
+          <p class="flat-map-hint" data-tr="Bir noktaya dokunarak projeleri keşfedin" data-en="Tap a point to explore projects">Bir noktaya dokunarak projeleri keşfedin</p>
+        </div>
+        <aside class="flat-country-panel" id="countryPanel" aria-live="polite">
+          <button class="panel-close" id="panelClose" type="button" aria-label="Kapat">×</button>
+          <div class="country-panel-heading"><span class="country-panel-flag" id="countryFlag"></span><div><p class="panel-kicker" data-tr="Seçili Destinasyon" data-en="Selected Destination">Seçili Destinasyon</p><h2 id="countryName"></h2></div></div>
+          <p id="countrySummary"></p>
+          <div class="country-stats">
+            <div><strong id="projectCount">0</strong><span data-tr="Proje" data-en="Projects">Proje</span></div>
+            <div><strong id="brandCount">0</strong><span data-tr="Marka" data-en="Brands">Marka</span></div>
+          </div>
+          <div class="country-projects" id="countryProjects"></div>
+        </aside>
+      </div>
+      <div class="country-pills" aria-label="Ülke seçimi">
+        <button type="button" data-country-select="turkiye"><span>🇹🇷</span><b data-tr="Türkiye" data-en="Türkiye">Türkiye</b></button>
+        <button type="button" data-country-select="mauritius"><span>🇲🇺</span><b>Mauritius</b></button>
+        <button type="button" data-country-select="italy"><span>🇮🇹</span><b data-tr="İtalya" data-en="Italy">İtalya</b></button>
+        <button type="button" data-country-select="georgia"><span>🇬🇪</span><b data-tr="Gürcistan" data-en="Georgia">Gürcistan</b></button>
+        <button type="button" data-country-select="austria"><span>🇦🇹</span><b data-tr="Avusturya" data-en="Austria">Avusturya</b></button>
+        <button type="button" data-country-select="france"><span>🇫🇷</span><b data-tr="Fransa" data-en="France">Fransa</b></button>
+      </div>
     </div>
   </div>
+  <a class="portfolio-scroll-cue" href="#videos"><span data-tr="Video portfolyosunu keşfet" data-en="Explore the video portfolio">Video portfolyosunu keşfet</span><i>↓</i></a>
 </section>
 
 <section class="portfolio-video-section" id="videos">
