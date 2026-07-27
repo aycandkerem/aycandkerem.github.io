@@ -382,6 +382,10 @@
   }
 }
 
+.social-positioning{display:flex;flex-direction:column;justify-content:space-between}
+.social-positioning h3{max-width:520px;margin:30px 0 18px;font:600 clamp(1.55rem,2.5vw,2.7rem)/1.12 Manrope,sans-serif;letter-spacing:-.035em}
+.social-positioning p{max-width:520px;margin:0;color:var(--muted);line-height:1.7}
+
 
 /* Mobile header / hero label overlap fix */
 @media (max-width: 590px) {
