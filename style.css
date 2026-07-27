@@ -35,6 +35,11 @@
   }
 }
 
+/* Persistent dark navigation across the site */
+.site-header{background:rgba(10,10,11,.94);color:#fff;border-bottom:1px solid rgba(255,255,255,.12);backdrop-filter:blur(18px)}
+.site-header .brand,.site-header .main-nav a{color:#fff}
+.site-header .menu-toggle span{background:#fff}
+
 @media (max-width: 590px) {
   html,
   body {
@@ -380,6 +385,24 @@
     width: min(84vw, 270px);
     max-width: min(84vw, 270px);
   }
+}
+
+/* Final navigation override: consistent contrast on every section */
+body .site-header,
+body .site-header.scrolled {
+  background: rgba(10, 10, 11, .94);
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+  backdrop-filter: blur(18px);
+}
+
+body .site-header .brand,
+body .site-header .main-nav a {
+  color: #fff;
+}
+
+body .site-header .menu-toggle span {
+  background: #fff;
 }
 
 .social-positioning{display:flex;flex-direction:column;justify-content:space-between}
