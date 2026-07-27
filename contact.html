@@ -8,8 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260728-1">
-<link rel="stylesheet" href="pages.css?v=20260728-1">
+<link rel="stylesheet" href="style.css?v=20260728-2">
+<link rel="stylesheet" href="pages.css?v=20260728-2">
 </head>
 <body class="subpage">
 
@@ -26,21 +26,31 @@
 </header>
 
 <main>
-<section class="subpage-hero contact-page-hero"><div class="container">
-<p class="section-kicker" data-tr="Birlikte Çalışalım" data-en="Let’s Work Together">Birlikte Çalışalım</p>
-<h1 data-tr="Bir sonraki hikayeyi birlikte anlatalım." data-en="Let’s tell the next story together.">Bir sonraki hikayeyi birlikte anlatalım.</h1>
-<p data-tr="Projenizin destinasyonunu, tarihini ve ihtiyaç duyduğunuz içerikleri paylaşın. Size uygun yaratıcı kapsamla dönüş yapalım." data-en="Share your destination, dates and content needs. We will return with a creative scope tailored to your project.">Projenizin destinasyonunu, tarihini ve ihtiyaç duyduğunuz içerikleri paylaşın. Size uygun yaratıcı kapsamla dönüş yapalım.</p>
-</div></section>
-<section class="page-section"><div class="container contact-page-grid">
-<div class="contact-direct"><span>Email</span><a href="mailto:aycandkerem@gmail.com">aycandkerem@gmail.com</a><span>Instagram</span><a href="https://instagram.com/aycandkerem" target="_blank">@aycandkerem</a></div>
-<form class="inquiry-form" action="mailto:aycandkerem@gmail.com" method="post" enctype="text/plain">
-<label><span data-tr="Adınız / Marka" data-en="Name / Brand">Adınız / Marka</span><input name="name" required></label>
-<label><span data-tr="E-posta" data-en="Email">E-posta</span><input type="email" name="email" required></label>
-<label><span data-tr="Proje Türü" data-en="Project Type">Proje Türü</span><select name="project"><option>Hotel / Resort</option><option>Destination</option><option>Restaurant</option><option>Product Content</option><option>Other</option></select></label>
-<label><span data-tr="Destinasyon & Tarih" data-en="Destination & Dates">Destinasyon & Tarih</span><input name="destination"></label>
-<label class="full"><span data-tr="Projenizden kısaca bahsedin" data-en="Tell us about your project">Projenizden kısaca bahsedin</span><textarea name="message" rows="6" required></textarea></label>
-<button class="button button-dark full" type="submit" data-tr="Proje Talebini Gönder" data-en="Send Project Inquiry">Proje Talebini Gönder</button>
-</form>
+<section class="contact-v2-hero" data-header-theme="light">
+  <div class="container contact-v2-hero-grid">
+    <div><p class="section-kicker" data-tr="Birlikte Çalışalım" data-en="Let’s Work Together">Birlikte Çalışalım</p><h1 data-tr="Bir sonraki hikayenizi birlikte tasarlayalım." data-en="Let’s design your next story together.">Bir sonraki hikayenizi birlikte tasarlayalım.</h1></div>
+    <div class="contact-v2-intro"><p data-tr="Otel, destinasyon, restoran veya yaşam tarzı projeniz için hedefinizi anlatın. İhtiyacınıza uygun yaratıcı yaklaşım, teslim kapsamı ve üretim planıyla size dönüş yapalım." data-en="Tell us about your goals for your hotel, destination, restaurant or lifestyle project. We will return with a tailored creative approach, deliverables and production plan.">Otel, destinasyon, restoran veya yaşam tarzı projeniz için hedefinizi anlatın. İhtiyacınıza uygun yaratıcı yaklaşım, teslim kapsamı ve üretim planıyla size dönüş yapalım.</p><span data-tr="Genellikle 1–2 iş günü içinde dönüş yapıyoruz." data-en="We usually respond within 1–2 business days.">Genellikle 1–2 iş günü içinde dönüş yapıyoruz.</span></div>
+  </div>
+</section>
+<section class="contact-v2-section" data-header-theme="light"><div class="container contact-page-grid">
+<aside class="contact-direct">
+  <p class="section-kicker" data-tr="Doğrudan İletişim" data-en="Direct Contact">Doğrudan İletişim</p>
+  <a href="mailto:aycandkerem@gmail.com">aycandkerem<br>@gmail.com</a>
+  <a class="contact-social" href="https://instagram.com/aycandkerem" target="_blank" rel="noopener"><small>Instagram</small><strong>@aycandkerem ↗</strong></a>
+  <div class="contact-fit"><span data-tr="En uygun projeler" data-en="Best suited for">En uygun projeler</span><p data-tr="Oteller · Destinasyonlar · Restoranlar · Turizm ve yaşam tarzı markaları" data-en="Hotels · Destinations · Restaurants · Travel and lifestyle brands">Oteller · Destinasyonlar · Restoranlar · Turizm ve yaşam tarzı markaları</p></div>
+</aside>
+<div class="contact-form-card">
+  <div class="contact-form-heading"><span>Project Brief</span><h2 data-tr="Projenizi bize anlatın." data-en="Tell us about your project.">Projenizi bize anlatın.</h2><p data-tr="Bildiğiniz detayları paylaşmanız yeterli; kalan kapsamı birlikte netleştiririz." data-en="Share whatever details you have; we can define the rest together.">Bildiğiniz detayları paylaşmanız yeterli; kalan kapsamı birlikte netleştiririz.</p></div>
+  <form class="inquiry-form" id="inquiryForm">
+    <label><span data-tr="Adınız / Marka" data-en="Name / Brand">Adınız / Marka</span><input name="name" autocomplete="organization" required></label>
+    <label><span data-tr="E-posta" data-en="Email">E-posta</span><input type="email" name="email" autocomplete="email" required></label>
+    <label><span data-tr="Proje Türü" data-en="Project Type">Proje Türü</span><select name="project"><option>Hotel / Resort</option><option>Destination</option><option>Restaurant</option><option>Product / Lifestyle</option><option>Other</option></select></label>
+    <label><span data-tr="Destinasyon & Tarih" data-en="Destination & Dates">Destinasyon & Tarih</span><input name="destination" placeholder="Mauritius · October 2026"></label>
+    <label class="full"><span data-tr="Hedefiniz ve ihtiyaç duyduğunuz içerikler" data-en="Your goals and content needs">Hedefiniz ve ihtiyaç duyduğunuz içerikler</span><textarea name="message" rows="6" required></textarea></label>
+    <button class="button button-dark full" type="submit" data-tr="E-posta Taslağını Oluştur →" data-en="Create Email Draft →">E-posta Taslağını Oluştur →</button>
+    <p class="contact-form-note full" data-tr="Gönder butonu, verdiğiniz bilgilerle hazır bir e-posta taslağı açar." data-en="The button opens a ready-to-send email draft using the details you provide.">Gönder butonu, verdiğiniz bilgilerle hazır bir e-posta taslağı açar.</p>
+  </form>
+</div>
 </div></section>
 </main>
 
@@ -51,7 +61,7 @@
     <p>© 2026 Ayça &amp; Kerem</p>
   </div>
 </footer>
-<script src="page-script.js"></script>
+<script src="page-script.js?v=20260728-2"></script>
 
 
 </body>
