@@ -472,3 +472,96 @@
   .about-role-grid article{min-height:220px}
   .about-role-grid h3{margin-top:42px}
 }
+
+/* Portfolio detail panel V3 */
+.country-detail-panel{padding:26px 28px}
+.country-detail-top{display:grid;grid-template-columns:minmax(0,1fr) 128px;gap:22px;align-items:stretch;margin:0 52px 18px 0}
+.country-panel-heading{min-width:0;padding:17px 20px;border:1px solid #e2ded5;border-radius:17px;background:#f8f6f1}
+.country-panel-heading h2{overflow:hidden;text-overflow:ellipsis;font:700 clamp(1.55rem,2.4vw,2.3rem)/1.05 Manrope,sans-serif;white-space:nowrap}
+.country-panel-flag{flex:0 0 auto;font-size:2.2rem}
+.country-detail-panel .country-project-count{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:1px;margin:0;padding:17px 20px;border:1px solid #d9d4c9;border-radius:17px;background:#292d2b;color:#fff}
+.country-detail-panel .country-project-count strong{font-size:2.2rem;line-height:1}
+.country-detail-panel .country-project-count span{color:rgba(255,255,255,.64);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em}
+.country-detail-panel>p{margin:0 0 18px;padding:0 3px;font-size:.9rem;line-height:1.5}
+.country-detail-panel .country-projects{gap:9px}
+.country-detail-panel .map-project{min-height:102px;padding:15px 17px}
+.country-detail-panel .map-project h3{font-size:.92rem}
+.country-detail-panel .map-project p{font-size:.76rem}
+.country-detail-panel .map-project small{margin-top:7px;font-size:.68rem}
+
+/* Stronger portfolio conversion close */
+.portfolio-closing{text-align:left}
+.portfolio-closing-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(330px,.75fr);gap:90px;align-items:end}
+.portfolio-closing h2{max-width:900px;margin:18px 0 26px;font-size:clamp(3rem,6vw,6.2rem)}
+.portfolio-closing-copy>p:not(.section-kicker){max-width:710px;color:rgba(255,255,255,.62);font-size:1.05rem;line-height:1.75}
+.portfolio-closing-actions{display:flex;align-items:center;gap:26px;margin-top:36px}
+.portfolio-mail-link{padding-bottom:7px;border-bottom:1px solid rgba(255,255,255,.35);color:rgba(255,255,255,.76);font-weight:600}
+.portfolio-closing-points{border-top:1px solid rgba(255,255,255,.15)}
+.portfolio-closing-points article{display:grid;grid-template-columns:34px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.15)}
+.portfolio-closing-points b{color:#bda77f;font-size:.7rem}
+.portfolio-closing-points span{font-size:.92rem;line-height:1.45}
+
+/* Contact V2 */
+.contact-v2-hero{padding:152px 0 76px;background:#f4f1ea}
+.contact-v2-hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:90px;align-items:end}
+.contact-v2-hero h1{max-width:780px;margin:14px 0 0;font:700 clamp(3rem,5.8vw,6.4rem)/.94 Manrope,sans-serif;letter-spacing:-.065em}
+.contact-v2-intro{padding-bottom:8px}
+.contact-v2-intro p{margin:0;color:#62605a;font-size:1.08rem;line-height:1.75}
+.contact-v2-intro span{display:block;margin-top:23px;padding-top:18px;border-top:1px solid rgba(20,22,21,.14);color:#77736b;font-size:.78rem}
+.contact-v2-section{padding:45px 0 120px;background:#f4f1ea}
+.contact-page-grid{grid-template-columns:minmax(300px,.68fr) minmax(560px,1.32fr);gap:64px;align-items:start}
+.contact-direct{position:sticky;top:110px;padding:8px 0}
+.contact-direct>.section-kicker{margin:0 0 30px}
+.contact-direct>a:not(.contact-social){font-size:clamp(1.6rem,3vw,2.8rem);line-height:1.05}
+.contact-social{display:flex;flex-direction:column;gap:8px;margin-top:34px;padding-top:25px;border-top:1px solid rgba(20,22,21,.14)}
+.contact-social small,.contact-fit span{color:#77736b;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em}
+.contact-social strong{font-size:1.08rem}
+.contact-fit{margin-top:50px;padding:24px;border:1px solid #d9d5cc;border-radius:20px;background:#ebe7dd}
+.contact-fit p{margin:13px 0 0;color:#5e5c56;line-height:1.65}
+.contact-form-card{padding:42px;border:1px solid #d8d4ca;border-radius:30px;background:#fff;box-shadow:0 28px 70px rgba(60,55,46,.09)}
+.contact-form-heading span{color:#8c7655;font-size:.7rem;text-transform:uppercase;letter-spacing:.14em}
+.contact-form-heading h2{margin:10px 0 12px;font:700 clamp(2.15rem,3.7vw,3.9rem)/1 Manrope,sans-serif;letter-spacing:-.055em}
+.contact-form-heading p{margin:0 0 34px;color:#74716a}
+.inquiry-form{gap:20px}
+.inquiry-form label>span{font-size:.78rem;font-weight:600}
+.inquiry-form input,.inquiry-form select,.inquiry-form textarea{border-color:#d8d4ca;border-radius:12px;background:#f9f8f5;transition:border-color .2s,box-shadow .2s}
+.inquiry-form input:focus,.inquiry-form select:focus,.inquiry-form textarea:focus{outline:0;border-color:#6e685d;box-shadow:0 0 0 3px rgba(110,104,93,.12)}
+.inquiry-form textarea{resize:vertical}
+.inquiry-form button{border:0;cursor:pointer}
+.contact-form-note{margin:-7px 0 0;color:#89857d;font-size:.7rem;text-align:center}
+
+@media(max-width:980px){
+  .portfolio-closing-grid,.contact-v2-hero-grid{grid-template-columns:1fr;gap:48px}
+  .contact-page-grid{grid-template-columns:1fr;gap:45px}
+  .contact-direct{position:static;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .contact-direct>.section-kicker,.contact-direct>a:not(.contact-social){grid-column:1/-1}
+  .contact-social,.contact-fit{margin-top:0}
+}
+@media(max-width:620px){
+  .country-detail-panel{padding:18px 14px}
+  .country-detail-top{grid-template-columns:minmax(0,1fr) 92px;gap:8px;margin:38px 0 12px}
+  .country-panel-heading{gap:9px;padding:12px}
+  .country-panel-heading h2{font-size:1.35rem}
+  .country-panel-heading .panel-kicker{font-size:.58rem}
+  .country-panel-flag{font-size:1.65rem}
+  .country-detail-panel .country-project-count{padding:12px}
+  .country-detail-panel .country-project-count strong{font-size:1.8rem}
+  .country-detail-panel>p{margin-bottom:12px;font-size:.78rem}
+  .country-detail-panel .country-projects{grid-template-columns:1fr 1fr;gap:7px}
+  .country-detail-panel .map-project{min-height:94px;padding:12px}
+  .country-detail-panel .map-project h3{font-size:.78rem}
+  .country-detail-panel .map-project p{font-size:.68rem}
+  .country-detail-panel .map-project small{font-size:.61rem}
+  .portfolio-closing{padding:88px 0}
+  .portfolio-closing h2{font-size:clamp(2.6rem,12vw,4rem)}
+  .portfolio-closing-actions{align-items:flex-start;flex-direction:column}
+  .contact-v2-hero{padding:122px 0 52px}
+  .contact-v2-hero h1{font-size:clamp(2.7rem,12vw,4.2rem)}
+  .contact-v2-section{padding:22px 0 82px}
+  .contact-direct{display:block}
+  .contact-social{margin-top:30px}
+  .contact-fit{margin-top:35px}
+  .contact-form-card{padding:27px 18px;border-radius:23px}
+  .inquiry-form{grid-template-columns:1fr}
+  .inquiry-form .full{grid-column:auto}
+}
