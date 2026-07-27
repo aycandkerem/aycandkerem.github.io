@@ -40,7 +40,19 @@
     }
   });
   nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-  addEventListener('scroll', () => header?.classList.toggle('scrolled', scrollY > 30), { passive: true });
+  const updateHeader = () => {
+    header?.classList.toggle('scrolled', scrollY > 30);
+    const probeY = Math.min(innerHeight * .12, 105);
+    const themedSection = [...document.querySelectorAll('[data-header-theme]')]
+      .find(section => {
+        const rect = section.getBoundingClientRect();
+        return rect.top <= probeY && rect.bottom > probeY;
+      });
+    header?.classList.toggle('theme-dark', themedSection?.dataset.headerTheme === 'dark');
+  };
+  addEventListener('scroll', updateHeader, { passive: true });
+  addEventListener('resize', updateHeader, { passive: true });
+  updateHeader();
   addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
 
   document.querySelectorAll('[data-case-filter]').forEach(button => button.addEventListener('click', () => {
