@@ -13,6 +13,15 @@
     turkiye: [35.24, 38.96], mauritius: [57.55, -20.35], italy: [12.57, 41.87],
     georgia: [43.36, 42.32], austria: [14.55, 47.52], france: [2.21, 46.23]
   };
+  const flags = {
+    turkiye: '🇹🇷', mauritius: '🇲🇺', italy: '🇮🇹',
+    georgia: '🇬🇪', austria: '🇦🇹', france: '🇫🇷'
+  };
+  const mapViews = {
+    world: { scale: 1, centerLon: 10, centerLat: 15 },
+    europe: { scale: 2.15, centerLon: 21, centerLat: 43 },
+    mauritius: { scale: 3.15, centerLon: 57.55, centerLat: -20.35 }
+  };
   let view = { scale: 1, centerLon: 10, centerLat: 15 };
   let target = { ...view };
   let selected = null;
@@ -52,15 +61,15 @@
   function draw() {
     ctx.clearRect(0, 0, dimensions.width, dimensions.height);
     const gradient = ctx.createLinearGradient(0, 0, 0, dimensions.height);
-    gradient.addColorStop(0, '#12252c');
-    gradient.addColorStop(1, '#071115');
+    gradient.addColorStop(0, '#eef4f6');
+    gradient.addColorStop(1, '#dfe9ec');
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, dimensions.width, dimensions.height);
 
     ctx.save();
-    ctx.fillStyle = '#657c76';
-    ctx.strokeStyle = 'rgba(214,232,225,.28)';
-    ctx.lineWidth = .65;
+    ctx.fillStyle = '#c3cbbf';
+    ctx.strokeStyle = 'rgba(74,91,84,.34)';
+    ctx.lineWidth = .72;
     land.features.forEach(feature => {
       const geometry = feature.geometry;
       if (geometry.type === 'Polygon') geometry.coordinates.forEach(drawRing);
@@ -68,7 +77,7 @@
     });
     ctx.restore();
 
-    ctx.fillStyle = 'rgba(255,255,255,.025)';
+    ctx.fillStyle = 'rgba(65,91,98,.065)';
     for (let lon = -180; lon <= 180; lon += 30) {
       const top = project([lon, 85]);
       const bottom = project([lon, -85]);
@@ -105,6 +114,7 @@
     target = { scale: dimensions.width < 700 ? 3.2 : 2.35, centerLon: lon, centerLat: lat };
     document.getElementById('countryName').textContent = lang() === 'en' ? country.name_en : country.name_tr;
     document.getElementById('countrySummary').textContent = lang() === 'en' ? country.summary_en : country.summary_tr;
+    document.getElementById('countryFlag').textContent = flags[countryId];
     document.getElementById('projectCount').textContent = country.projects.length;
     document.getElementById('brandCount').textContent = new Set(country.projects.map(project => project[0])).size;
     document.getElementById('countryProjects').innerHTML = country.projects.map(project => `
@@ -114,12 +124,35 @@
         <small>${project[3]}</small>
       </article>`).join('');
     panel.classList.add('open');
+    document.querySelectorAll('[data-country-select]').forEach(button =>
+      button.classList.toggle('active', button.dataset.countrySelect === countryId));
+    const relatedView = countryId === 'mauritius' ? 'mauritius' : 'europe';
+    document.querySelectorAll('[data-map-view]').forEach(button =>
+      button.classList.toggle('active', button.dataset.mapView === relatedView));
   }
 
   function reset() {
     selected = null;
-    target = { scale: 1, centerLon: 10, centerLat: 15 };
+    target = { ...mapViews.world };
     panel.classList.remove('open');
+    document.querySelectorAll('[data-country-select]').forEach(button => button.classList.remove('active'));
+    document.querySelectorAll('[data-map-view]').forEach(button =>
+      button.classList.toggle('active', button.dataset.mapView === 'world'));
+  }
+
+  function setView(viewName) {
+    const next = mapViews[viewName];
+    if (!next) return;
+    selected = null;
+    target = { ...next };
+    panel.classList.remove('open');
+    document.querySelectorAll('[data-country-select]').forEach(button => button.classList.remove('active'));
+    document.querySelectorAll('[data-map-view]').forEach(button =>
+      button.classList.toggle('active', button.dataset.mapView === viewName));
+  }
+
+  function changeZoom(delta) {
+    target.scale = Math.max(1, Math.min(4, target.scale + delta));
   }
 
   markersHost.addEventListener('click', event => {
@@ -127,7 +160,18 @@
     if (marker) openCountry(marker.dataset.country);
   });
   document.getElementById('resetMap').addEventListener('click', reset);
+  document.getElementById('zoomIn').addEventListener('click', () => changeZoom(.45));
+  document.getElementById('zoomOut').addEventListener('click', () => changeZoom(-.45));
   document.getElementById('panelClose').addEventListener('click', reset);
+  document.querySelectorAll('[data-map-view]').forEach(button =>
+    button.addEventListener('click', () => setView(button.dataset.mapView)));
+  document.querySelectorAll('[data-country-select]').forEach(button =>
+    button.addEventListener('click', () => openCountry(button.dataset.countrySelect)));
+  document.querySelector('[data-focus-map]')?.addEventListener('click', () => {
+    stage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    stage.classList.add('map-emphasis');
+    setTimeout(() => stage.classList.remove('map-emphasis'), 900);
+  });
   addEventListener('keydown', event => { if (event.key === 'Escape') reset(); });
   addEventListener('resize', resize, { passive: true });
   stage.addEventListener('wheel', () => {}, { passive: true });
