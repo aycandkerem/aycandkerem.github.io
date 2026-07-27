@@ -52,6 +52,15 @@
     });
   }));
 
+  document.querySelectorAll('[data-phone-filter]').forEach(button => button.addEventListener('click', () => {
+    document.querySelectorAll('[data-phone-filter]').forEach(item => item.classList.remove('active'));
+    button.classList.add('active');
+    const filter = button.dataset.phoneFilter;
+    document.querySelectorAll('.portfolio-item').forEach(item => {
+      item.hidden = filter !== 'all' && item.dataset.category !== filter;
+    });
+  }));
+
   const modal = document.getElementById('pageVideoModal');
   const modalVideo = modal?.querySelector('video');
   const closeModal = () => {
@@ -78,5 +87,5 @@
     video?.play().catch(() => {});
     observer.unobserve(entry.target);
   }), { threshold: .12 });
-  document.querySelectorAll('.reveal,.case-study-row').forEach(element => observer.observe(element));
+  document.querySelectorAll('.reveal,.case-study-row,.portfolio-item').forEach(element => observer.observe(element));
 })();
