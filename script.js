@@ -9,6 +9,11 @@ const header=document.getElementById('siteHeader'),menuToggle=document.getElemen
   const languageButtons = document.querySelectorAll('[data-language]');
   const popupButtons = document.querySelectorAll('[data-popup-language]');
 
+  const getSavedLanguage = () => {
+    const saved = localStorage.getItem('aycaKeremLanguage');
+    return saved === 'en' ? 'en' : 'tr';
+  };
+
   const applyLanguage = (language) => {
     const lang = language === 'en' ? 'en' : 'tr';
     document.documentElement.lang = lang;
@@ -22,24 +27,28 @@ const header=document.getElementById('siteHeader'),menuToggle=document.getElemen
 
     document.querySelectorAll('[data-i18n-aria]').forEach((element) => {
       const entry = translations[element.dataset.i18nAria];
-      if (entry && entry[lang]) element.setAttribute('aria-label', entry[lang]);
+      if (entry && entry[lang]) {
+        element.setAttribute('aria-label', entry[lang]);
+      }
     });
 
     document.querySelectorAll('[data-i18n-content]').forEach((element) => {
       const entry = translations[element.dataset.i18nContent];
-      if (entry && entry[lang]) element.setAttribute('content', entry[lang]);
+      if (entry && entry[lang]) {
+        element.setAttribute('content', entry[lang]);
+      }
     });
 
     const titleEntry = translations['meta.title'];
-    if (titleEntry && titleEntry[lang]) document.title = titleEntry[lang];
+    if (titleEntry && titleEntry[lang]) {
+      document.title = titleEntry[lang];
+    }
 
     languageButtons.forEach((button) => {
       const active = button.dataset.language === lang;
       button.classList.toggle('active', active);
       button.setAttribute('aria-pressed', String(active));
     });
-
-    localStorage.setItem('aycaKeremLanguage', lang);
   };
 
   const closePopup = () => {
@@ -48,21 +57,37 @@ const header=document.getElementById('siteHeader'),menuToggle=document.getElemen
     sessionStorage.setItem('aycaKeremLanguagePromptSeen', 'true');
   };
 
+  const selectLanguageAndReload = (language) => {
+    const lang = language === 'en' ? 'en' : 'tr';
+    const current = getSavedLanguage();
+
+    localStorage.setItem('aycaKeremLanguage', lang);
+    closePopup();
+
+    // Reload only when the language is actually changing.
+    if (lang !== current || document.documentElement.lang !== lang) {
+      window.location.reload();
+    } else {
+      applyLanguage(lang);
+    }
+  };
+
   languageButtons.forEach((button) => {
-    button.addEventListener('click', () => applyLanguage(button.dataset.language));
+    button.addEventListener('click', () => {
+      selectLanguageAndReload(button.dataset.language);
+    });
   });
 
   popupButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      applyLanguage(button.dataset.popupLanguage);
-      closePopup();
+      selectLanguageAndReload(button.dataset.popupLanguage);
     });
   });
 
-  // The site always opens in Turkish by default.
-  applyLanguage('tr');
+  // Turkish is the default until the visitor actively selects English.
+  applyLanguage(getSavedLanguage());
 
-  // Ask once per browser session.
+  // Show the language prompt once per browser session.
   if (!sessionStorage.getItem('aycaKeremLanguagePromptSeen')) {
     requestAnimationFrame(() => {
       popup?.classList.add('open');
@@ -320,4 +345,20 @@ const header=document.getElementById('siteHeader'),menuToggle=document.getElemen
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') closeModal();
   });
+})();
+
+
+// Stable modal close normalization
+(() => {
+  const modal = document.getElementById('videoModal') || document.querySelector('.video-modal');
+  if (!modal) return;
+
+  const dialog = modal.querySelector('.modal-dialog');
+  const closeButton =
+    modal.querySelector('.video-modal-close') ||
+    modal.querySelector('.modal-close');
+
+  if (dialog && closeButton && closeButton.parentElement !== dialog) {
+    dialog.appendChild(closeButton);
+  }
 })();
