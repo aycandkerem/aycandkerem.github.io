@@ -70,3 +70,89 @@ const header=document.getElementById('siteHeader'),menuToggle=document.getElemen
     });
   }
 })();
+
+
+// Final interaction refinements
+(() => {
+  // Fade the hero video in when the browser has enough data to display it.
+  const heroVideo = document.querySelector('.hero-video');
+  if (heroVideo) {
+    const revealHeroVideo = () => heroVideo.classList.remove('is-loading');
+    if (heroVideo.readyState >= 2) {
+      revealHeroVideo();
+    } else {
+      heroVideo.addEventListener('loadeddata', revealHeroVideo, { once: true });
+      heroVideo.addEventListener('canplay', revealHeroVideo, { once: true });
+    }
+  }
+
+  // Allow mouse and touch dragging on the continuously moving logo marquee.
+  const marquee =
+    document.querySelector('.brand-marquee') ||
+    document.querySelector('.brands-marquee') ||
+    document.querySelector('.marquee');
+
+  if (!marquee) return;
+
+  const track =
+    marquee.querySelector('.brand-track') ||
+    marquee.querySelector('.marquee-track') ||
+    marquee.firstElementChild;
+
+  if (!track) return;
+
+  let dragging = false;
+  let pointerStart = 0;
+  let scrollStart = 0;
+  let resumeTimer = null;
+
+  // We use scrollLeft for direct interaction while preserving the existing CSS animation.
+  marquee.style.overflowX = 'auto';
+  marquee.style.scrollbarWidth = 'none';
+  marquee.style.webkitOverflowScrolling = 'touch';
+
+  const pauseTrack = () => {
+    track.style.animationPlayState = 'paused';
+  };
+
+  const resumeTrack = () => {
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(() => {
+      if (!dragging) track.style.animationPlayState = 'running';
+    }, 900);
+  };
+
+  const startDrag = (event) => {
+    dragging = true;
+    pointerStart = event.clientX;
+    scrollStart = marquee.scrollLeft;
+    marquee.classList.add('is-dragging');
+    pauseTrack();
+    marquee.setPointerCapture?.(event.pointerId);
+  };
+
+  const moveDrag = (event) => {
+    if (!dragging) return;
+    const delta = event.clientX - pointerStart;
+    marquee.scrollLeft = scrollStart - delta;
+  };
+
+  const endDrag = (event) => {
+    if (!dragging) return;
+    dragging = false;
+    marquee.classList.remove('is-dragging');
+    marquee.releasePointerCapture?.(event.pointerId);
+    resumeTrack();
+  };
+
+  marquee.addEventListener('pointerdown', startDrag);
+  marquee.addEventListener('pointermove', moveDrag);
+  marquee.addEventListener('pointerup', endDrag);
+  marquee.addEventListener('pointercancel', endDrag);
+  marquee.addEventListener('pointerleave', endDrag);
+
+  marquee.addEventListener('mouseenter', pauseTrack);
+  marquee.addEventListener('mouseleave', resumeTrack);
+  marquee.addEventListener('touchstart', pauseTrack, { passive: true });
+  marquee.addEventListener('touchend', resumeTrack, { passive: true });
+})();

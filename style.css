@@ -599,3 +599,278 @@ body.language-popup-open {
     font-size: clamp(2.12rem, 9.7vw, 3rem);
   }
 }
+
+
+/* =========================================================
+   Final responsive and interaction refinements
+   ========================================================= */
+
+/* Hero video loading state and smaller poster/fallback typography */
+.hero-video {
+  opacity: 1;
+  transition: opacity .7s ease;
+}
+
+.hero-video.is-loading {
+  opacity: 0;
+}
+
+.hero-poster,
+.hero-video-poster,
+.hero-loading,
+.video-placeholder {
+  font-size: clamp(.72rem, 1.1vw, .92rem) !important;
+  letter-spacing: .12em;
+}
+
+/* Portfolio micro interaction */
+@media (hover: hover) and (pointer: fine) {
+  .portfolio-item .phone-shell {
+    transition: transform .32s cubic-bezier(.2,.7,.2,1), box-shadow .32s ease;
+  }
+
+  .portfolio-item:hover .phone-shell {
+    transform: translateY(-3px) scale(1.012);
+  }
+}
+
+/* Brand references spacing, larger logos and draggable marquee */
+.brands-section .section-heading-row,
+#brands .section-heading-row {
+  margin-bottom: clamp(56px, 7vw, 92px);
+}
+
+.brand-marquee,
+.brands-marquee,
+.marquee {
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.brand-marquee.is-dragging,
+.brands-marquee.is-dragging,
+.marquee.is-dragging {
+  cursor: grabbing;
+}
+
+.brand-track,
+.marquee-track {
+  will-change: transform;
+}
+
+.brand-item {
+  flex-basis: 220px;
+  min-height: 138px;
+  padding: 22px;
+}
+
+.brand-item img {
+  width: auto;
+  max-width: 92%;
+  height: 62px;
+  max-height: 62px;
+  object-fit: contain;
+}
+
+.brand-item-mark-ryden img,
+.mark-ryden-logo {
+  filter: brightness(0) invert(1);
+  opacity: .9;
+}
+
+.brands-section,
+#brands {
+  padding-bottom: clamp(62px, 7vw, 92px);
+}
+
+.brands-section + .contact-section,
+#brands + .contact-section {
+  padding-top: clamp(70px, 8vw, 105px);
+}
+
+/* Lighter language popup backdrop */
+.language-popup-backdrop {
+  background: rgba(0, 0, 0, .38);
+  backdrop-filter: blur(5px);
+}
+
+.language-popup-card {
+  transform: scale(.97) translateY(8px);
+  transition: transform .3s cubic-bezier(.2,.8,.2,1);
+}
+
+.language-popup.open .language-popup-card {
+  transform: scale(1) translateY(0);
+}
+
+/* Mobile-only layout refinements */
+@media (max-width: 590px) {
+  /* Three statistics in a single row, above the photo collage */
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .about-copy {
+    display: contents;
+  }
+
+  .about-copy .section-title,
+  .about-copy .section-text {
+    order: 1;
+  }
+
+  .stats-grid {
+    order: 2;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    gap: 7px;
+    margin: 2px 0 0;
+  }
+
+  .photo-collage {
+    order: 3;
+    min-height: 410px;
+    margin-top: 4px;
+  }
+
+  .stat-card {
+    min-width: 0;
+    min-height: 110px;
+    padding: 14px 8px;
+    border-radius: 15px;
+    text-align: center;
+  }
+
+  .stat-card strong {
+    margin-bottom: 8px;
+    font-size: clamp(1.12rem, 5vw, 1.48rem);
+    line-height: 1;
+  }
+
+  .stat-card span,
+  .stat-card p {
+    font-size: clamp(.56rem, 2.35vw, .68rem);
+    line-height: 1.28;
+    overflow-wrap: anywhere;
+  }
+
+  /* Restore labels on mobile photo collage */
+  .photo-collage .collage-label,
+  .photo-collage .photo-label,
+  .photo-collage figcaption,
+  .photo-collage [class*="label"] {
+    display: inline-flex !important;
+    position: absolute;
+    z-index: 4;
+    max-width: calc(100% - 18px);
+    padding: 8px 11px;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 999px;
+    background: rgba(10,10,11,.62);
+    color: #fff;
+    font-size: .61rem;
+    line-height: 1;
+    letter-spacing: .06em;
+    white-space: nowrap;
+    backdrop-filter: blur(9px);
+  }
+
+  /* Two portfolio videos side by side */
+  .phone-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 28px 10px;
+  }
+
+  .portfolio-item {
+    min-width: 0;
+  }
+
+  .phone-shell {
+    width: 100%;
+    max-width: 170px;
+    border-width: 5px;
+    border-radius: 27px;
+  }
+
+  .phone-shell video {
+    border-radius: 21px;
+  }
+
+  .phone-speaker {
+    width: 38%;
+    height: 14px;
+  }
+
+  .video-open span {
+    font-size: .68rem;
+  }
+
+  .project-meta {
+    width: 100%;
+    max-width: 170px;
+    padding-top: 12px;
+  }
+
+  .project-meta h3 {
+    font-size: .82rem;
+    line-height: 1.25;
+  }
+
+  .project-meta p {
+    margin-top: 5px;
+    font-size: .67rem;
+    line-height: 1.35;
+  }
+
+  /* References spacing and larger logos */
+  .brands-section .section-heading-row,
+  #brands .section-heading-row {
+    margin-bottom: 52px;
+  }
+
+  .brand-item {
+    flex-basis: 174px;
+    min-height: 116px;
+    padding: 17px;
+  }
+
+  .brand-item img {
+    max-width: 94%;
+    height: 52px;
+    max-height: 52px;
+  }
+
+  .brands-section,
+  #brands {
+    padding-bottom: 56px;
+  }
+
+  .brands-section + .contact-section,
+  #brands + .contact-section {
+    padding-top: 64px;
+  }
+}
+
+@media (max-width: 370px) {
+  .stats-grid {
+    gap: 5px;
+  }
+
+  .stat-card {
+    padding: 12px 5px;
+  }
+
+  .phone-grid {
+    gap: 25px 8px;
+  }
+
+  .phone-shell,
+  .project-meta {
+    max-width: 154px;
+  }
+}
