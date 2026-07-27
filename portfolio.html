@@ -8,8 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260727-2">
-<link rel="stylesheet" href="pages.css?v=20260727-2">
+<link rel="stylesheet" href="style.css?v=20260727-3">
+<link rel="stylesheet" href="pages.css?v=20260727-3">
 </head>
 <body class="subpage">
 <header class="site-header page-header" id="siteHeader">
@@ -42,41 +42,27 @@
       </div>
     </div>
 
-    <div class="portfolio-map-wrap">
-      <div class="map-view-tabs" aria-label="Harita görünümü">
-        <button class="active" type="button" data-map-view="world" data-tr="Dünya" data-en="World">Dünya</button>
-        <button type="button" data-map-view="europe" data-tr="Avrupa & Kafkasya" data-en="Europe & Caucasus">Avrupa & Kafkasya</button>
-        <button type="button" data-map-view="mauritius">Mauritius</button>
+    <div class="portfolio-country-wrap" id="countryProjectsExperience">
+      <div class="country-grid-heading">
+        <span data-tr="Çalıştığımız destinasyonlar" data-en="Destinations we have worked in">Çalıştığımız destinasyonlar</span>
+        <small data-tr="Detayları görmek için bir ülke seçin" data-en="Select a country to see the details">Detayları görmek için bir ülke seçin</small>
       </div>
-      <div class="flat-map-shell">
-        <div class="flat-map-stage" id="interactiveMap">
-          <canvas id="flatMapCanvas" aria-label="Çalıştığımız ülkeleri gösteren etkileşimli dünya haritası"></canvas>
-          <div class="flat-map-markers" id="mapMarkers"></div>
-          <div class="map-zoom-controls">
-            <button id="zoomOut" type="button" aria-label="Uzaklaştır">−</button>
-            <button id="resetMap" type="button" aria-label="Dünya görünümüne dön">⌂</button>
-            <button id="zoomIn" type="button" aria-label="Yakınlaştır">+</button>
-          </div>
-          <p class="flat-map-hint" data-tr="Bir noktaya dokunarak projeleri keşfedin" data-en="Tap a point to explore projects">Bir noktaya dokunarak projeleri keşfedin</p>
+      <div class="country-card-shell">
+        <div class="country-card-grid" id="countryCardGrid">
+          <button class="country-card country-card-turkiye" type="button" data-country-select="turkiye"><span class="country-card-flag">🇹🇷</span><span class="country-card-copy"><b data-tr="Türkiye" data-en="Türkiye">Türkiye</b><small data-tr="4 proje" data-en="4 projects">4 proje</small></span><i>↗</i></button>
+          <button class="country-card country-card-mauritius" type="button" data-country-select="mauritius"><span class="country-card-flag">🇲🇺</span><span class="country-card-copy"><b>Mauritius</b><small data-tr="4 proje" data-en="4 projects">4 proje</small></span><i>↗</i></button>
+          <button class="country-card country-card-italy" type="button" data-country-select="italy"><span class="country-card-flag">🇮🇹</span><span class="country-card-copy"><b data-tr="İtalya" data-en="Italy">İtalya</b><small data-tr="3 proje" data-en="3 projects">3 proje</small></span><i>↗</i></button>
+          <button class="country-card country-card-georgia" type="button" data-country-select="georgia"><span class="country-card-flag">🇬🇪</span><span class="country-card-copy"><b data-tr="Gürcistan" data-en="Georgia">Gürcistan</b><small data-tr="3 proje" data-en="3 projects">3 proje</small></span><i>↗</i></button>
+          <button class="country-card country-card-austria" type="button" data-country-select="austria"><span class="country-card-flag">🇦🇹</span><span class="country-card-copy"><b data-tr="Avusturya" data-en="Austria">Avusturya</b><small data-tr="2 proje" data-en="2 projects">2 proje</small></span><i>↗</i></button>
+          <button class="country-card country-card-france" type="button" data-country-select="france"><span class="country-card-flag">🇫🇷</span><span class="country-card-copy"><b data-tr="Fransa" data-en="France">Fransa</b><small data-tr="1 proje" data-en="1 project">1 proje</small></span><i>↗</i></button>
         </div>
-        <aside class="flat-country-panel" id="countryPanel" aria-live="polite">
+        <aside class="country-detail-panel" id="countryPanel" aria-live="polite">
           <button class="panel-close" id="panelClose" type="button" aria-label="Kapat">×</button>
           <div class="country-panel-heading"><span class="country-panel-flag" id="countryFlag"></span><div><p class="panel-kicker" data-tr="Seçili Destinasyon" data-en="Selected Destination">Seçili Destinasyon</p><h2 id="countryName"></h2></div></div>
           <p id="countrySummary"></p>
-          <div class="country-stats">
-            <div><strong id="projectCount">0</strong><span data-tr="Proje" data-en="Projects">Proje</span></div>
-            <div><strong id="brandCount">0</strong><span data-tr="Marka" data-en="Brands">Marka</span></div>
-          </div>
+          <div class="country-project-count"><strong id="projectCount">0</strong><span data-tr="proje" data-en="projects">proje</span></div>
           <div class="country-projects" id="countryProjects"></div>
         </aside>
-      </div>
-      <div class="country-pills" aria-label="Ülke seçimi">
-        <button type="button" data-country-select="turkiye"><span>🇹🇷</span><b data-tr="Türkiye" data-en="Türkiye">Türkiye</b></button>
-        <button type="button" data-country-select="mauritius"><span>🇲🇺</span><b>Mauritius</b></button>
-        <button type="button" data-country-select="italy"><span>🇮🇹</span><b data-tr="İtalya" data-en="Italy">İtalya</b></button>
-        <button type="button" data-country-select="georgia"><span>🇬🇪</span><b data-tr="Gürcistan" data-en="Georgia">Gürcistan</b></button>
-        <button type="button" data-country-select="austria"><span>🇦🇹</span><b data-tr="Avusturya" data-en="Austria">Avusturya</b></button>
-        <button type="button" data-country-select="france"><span>🇫🇷</span><b data-tr="Fransa" data-en="France">Fransa</b></button>
       </div>
     </div>
   </div>
@@ -90,24 +76,24 @@
         <p class="section-kicker" data-tr="Video Portfolyosu" data-en="Video Portfolio">Video Portfolyosu</p>
         <h2 class="section-title" data-tr="Hikayelerimizi izleyin." data-en="Watch our stories.">Hikayelerimizi izleyin.</h2>
       </div>
-      <p class="section-text compact" data-tr="Otellerden destinasyonlara, gastronomiden ürün odaklı UGC çalışmalarına uzanan seçkimiz." data-en="A selection spanning hotels, destinations, gastronomy and product-led UGC.">Otellerden destinasyonlara, gastronomiden ürün odaklı UGC çalışmalarına uzanan seçkimiz.</p>
+      <p class="section-text compact" data-tr="Otellerden destinasyonlara, gastronomiden ürün hikayelerine uzanan sinematik seçkimiz." data-en="A cinematic selection spanning hotels, destinations, gastronomy and product stories.">Otellerden destinasyonlara, gastronomiden ürün hikayelerine uzanan sinematik seçkimiz.</p>
     </div>
     <div class="portfolio-filters">
       <button class="filter-button active" data-phone-filter="all" data-tr="Tümü" data-en="All">Tümü</button>
       <button class="filter-button" data-phone-filter="hotel" data-tr="Oteller" data-en="Hotels">Oteller</button>
       <button class="filter-button" data-phone-filter="restaurant" data-tr="Restoranlar" data-en="Restaurants">Restoranlar</button>
       <button class="filter-button" data-phone-filter="destination" data-tr="Destinasyonlar" data-en="Destinations">Destinasyonlar</button>
-      <button class="filter-button" data-phone-filter="ugc">UGC</button>
+      <button class="filter-button" data-phone-filter="ugc" data-tr="Ürün & UGC" data-en="Product & UGC">Ürün & UGC</button>
       <button class="filter-button" data-phone-filter="lifestyle">Lifestyle</button>
     </div>
     <div class="phone-grid portfolio-phone-grid">
       <article class="portfolio-item" data-category="hotel"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" muted loop playsinline preload="metadata" poster="assets/images/poster-1.webp" src="assets/videos/portfolio-1.mp4"></video><button class="video-open case-play-large" data-video="assets/videos/portfolio-1.mp4" aria-label="Hilton Mauritius videosunu izle"><span data-tr="İzle" data-en="Watch">İzle</span></button></div><div class="project-meta"><h3>Hilton Mauritius</h3><p data-tr="Otel Hikaye Anlatımı" data-en="Hotel Storytelling">Otel Hikaye Anlatımı</p></div></article>
       <article class="portfolio-item" data-category="destination"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" muted loop playsinline preload="metadata" poster="assets/images/poster-2.webp" src="assets/videos/portfolio-2.mp4"></video><button class="video-open case-play-large" data-video="assets/videos/portfolio-2.mp4" aria-label="Heritage Resorts videosunu izle"><span data-tr="İzle" data-en="Watch">İzle</span></button></div><div class="project-meta"><h3>Heritage Resorts</h3><p data-tr="Tropikal Ada Deneyimi" data-en="Tropical Island Experience">Tropikal Ada Deneyimi</p></div></article>
-      <article class="portfolio-item" data-category="restaurant"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" muted loop playsinline preload="metadata" poster="assets/images/poster-3.webp" src="assets/videos/portfolio-3.mp4"></video><button class="video-open case-play-large" data-video="assets/videos/portfolio-3.mp4" aria-label="Iasamani Restaurant videosunu izle"><span data-tr="İzle" data-en="Watch">İzle</span></button></div><div class="project-meta"><h3>Iasamani Restaurant</h3><p data-tr="Restoran UGC" data-en="Restaurant UGC">Restoran UGC</p></div></article>
+      <article class="portfolio-item" data-category="restaurant"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" muted loop playsinline preload="metadata" poster="assets/images/poster-3.webp" src="assets/videos/portfolio-3.mp4"></video><button class="video-open case-play-large" data-video="assets/videos/portfolio-3.mp4" aria-label="Iasamani Restaurant videosunu izle"><span data-tr="İzle" data-en="Watch">İzle</span></button></div><div class="project-meta"><h3>Iasamani Restaurant</h3><p data-tr="Gastronomi Hikayesi" data-en="Gastronomy Story">Gastronomi Hikayesi</p></div></article>
       <article class="portfolio-item" data-category="restaurant"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" muted loop playsinline preload="metadata" poster="assets/images/poster-4.webp" src="assets/videos/portfolio-4.mp4"></video><button class="video-open case-play-large" data-video="assets/videos/portfolio-4.mp4" aria-label="Le Château de Bel Ombre videosunu izle"><span data-tr="İzle" data-en="Watch">İzle</span></button></div><div class="project-meta"><h3>Le Château de Bel Ombre</h3><p data-tr="Romantik Akşam Yemeği" data-en="Romantic Dining">Romantik Akşam Yemeği</p></div></article>
-      <article class="portfolio-item" data-category="hotel"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" muted loop playsinline preload="metadata" poster="assets/images/poster-5.webp" src="assets/videos/portfolio-5.mp4"></video><button class="video-open case-play-large" data-video="assets/videos/portfolio-5.mp4" aria-label="Anba Soley videosunu izle"><span data-tr="İzle" data-en="Watch">İzle</span></button></div><div class="project-meta"><h3>Anba Soley Airbnb</h3><p data-tr="Konaklama UGC" data-en="Stay UGC">Konaklama UGC</p></div></article>
+      <article class="portfolio-item" data-category="hotel"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" muted loop playsinline preload="metadata" poster="assets/images/poster-5.webp" src="assets/videos/portfolio-5.mp4"></video><button class="video-open case-play-large" data-video="assets/videos/portfolio-5.mp4" aria-label="Anba Soley videosunu izle"><span data-tr="İzle" data-en="Watch">İzle</span></button></div><div class="project-meta"><h3>Anba Soley Airbnb</h3><p data-tr="Konaklama Hikayesi" data-en="Stay Storytelling">Konaklama Hikayesi</p></div></article>
       <article class="portfolio-item" data-category="restaurant"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" muted loop playsinline preload="metadata" poster="assets/images/poster-6.webp" src="assets/videos/portfolio-6.mp4"></video><button class="video-open case-play-large" data-video="assets/videos/portfolio-6.mp4" aria-label="Heritage Resorts gastronomi videosunu izle"><span data-tr="İzle" data-en="Watch">İzle</span></button></div><div class="project-meta"><h3>Heritage Resorts</h3><p data-tr="İmza Akşam Yemeği" data-en="Signature Dining">İmza Akşam Yemeği</p></div></article>
-      <article class="portfolio-item" data-category="ugc"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" muted loop playsinline preload="metadata" poster="assets/images/poster-7.webp" src="assets/videos/portfolio-7.mp4"></video><button class="video-open case-play-large" data-video="assets/videos/portfolio-7.mp4" aria-label="Mark Ryden videosunu izle"><span data-tr="İzle" data-en="Watch">İzle</span></button></div><div class="project-meta"><h3>Mark Ryden</h3><p data-tr="Ürün Odaklı UGC" data-en="Product-focused UGC">Ürün Odaklı UGC</p></div></article>
+      <article class="portfolio-item" data-category="ugc"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" muted loop playsinline preload="metadata" poster="assets/images/poster-7.webp" src="assets/videos/portfolio-7.mp4"></video><button class="video-open case-play-large" data-video="assets/videos/portfolio-7.mp4" aria-label="Mark Ryden videosunu izle"><span data-tr="İzle" data-en="Watch">İzle</span></button></div><div class="project-meta"><h3>Mark Ryden</h3><p data-tr="Ürün Hikayesi" data-en="Product Story">Ürün Hikayesi</p></div></article>
       <article class="portfolio-item" data-category="restaurant"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" muted loop playsinline preload="metadata" poster="assets/images/poster-8.webp" src="assets/videos/portfolio-8.mp4"></video><button class="video-open case-play-large" data-video="assets/videos/portfolio-8.mp4" aria-label="Pizzeria Rössl videosunu izle"><span data-tr="İzle" data-en="Watch">İzle</span></button></div><div class="project-meta"><h3>Pizzeria Rössl</h3><p data-tr="Yeme & İçme İçeriği" data-en="Food & Beverage Content">Yeme & İçme İçeriği</p></div></article>
       <article class="portfolio-item" data-category="lifestyle"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" muted loop playsinline preload="metadata" src="assets/videos/portfolio-9.mp4"></video><button class="video-open case-play-large" data-video="assets/videos/portfolio-9.mp4" aria-label="Couple Lifestyle videosunu izle"><span data-tr="İzle" data-en="Watch">İzle</span></button></div><div class="project-meta"><h3>Couple Lifestyle</h3><p data-tr="Doğal Deneyim Anlatımı" data-en="Natural Experience Storytelling">Doğal Deneyim Anlatımı</p></div></article>
     </div>
@@ -121,8 +107,7 @@
 <footer class="subpage-footer"><div class="container subpage-footer-inner"><div><strong>Ayça &amp; Kerem</strong><span data-tr="Yaratıcı Hikaye Anlatımı" data-en="Creative Storytelling">Yaratıcı Hikaye Anlatımı</span></div><nav><a href="portfolio.html" data-tr="Portfolyo" data-en="Portfolio">Portfolyo</a><a href="contact.html" data-tr="İletişim" data-en="Contact">İletişim</a></nav><p>© 2026 Ayça &amp; Kerem</p></div></footer>
 
 <script>window.WORLD_MAP_DATA = [{"id":"turkiye","name_tr":"Türkiye","name_en":"Türkiye","summary_tr":"Otel, restoran, turizm ve ürün markaları için sinematik UGC ve sosyal medya içerikleri.","summary_en":"Cinematic UGC and social content for hotels, restaurants, tourism and product brands.","projects":[["InterContinental Istanbul","Otel hikaye anlatımı","Hotel storytelling","1 Reel"],["Altunizade Suites Istanbul","Otel & lifestyle","Hotel & lifestyle","Reel · Fotoğraf"],["Alden Hotel Cappadocia","Destinasyon & otel","Destination & hotel","Reel · Story"],["Mark Ryden Türkiye","Ürün UGC","Product UGC","1 Reel"]]},{"id":"mauritius","name_tr":"Mauritius","name_en":"Mauritius","summary_tr":"Balayı, resort, gastronomi ve ada deneyimi odağında tropikal hikaye anlatımı.","summary_en":"Tropical storytelling focused on honeymoon, resorts, gastronomy and island experiences.","projects":[["Hilton Mauritius Resort & Spa","Otel hikaye anlatımı","Hotel storytelling","1 Reel · 25+ Fotoğraf · 8+ Story"],["Heritage Resorts","Resort & destinasyon","Resort & destination","Reel · Fotoğraf · Story"],["Le Château de Bel Ombre","Gastronomi deneyimi","Dining experience","1 Reel"],["Anba Soley Airbnb","Konaklama UGC","Stay UGC","1 Reel"]]},{"id":"italy","name_tr":"İtalya","name_en":"Italy","summary_tr":"Kuzey İtalya'da otel, şarap, gastronomi ve yaşam tarzı deneyimleri.","summary_en":"Hotel, wine, gastronomy and lifestyle experiences across Northern Italy.","projects":[["Hotel Meandro","Otel içeriği","Hotel content","Reel · Fotoğraf"],["Castel Sallegg","Şarap & deneyim","Wine & experience","Reel · Fotoğraf"],["Pizzeria Rössl","Yeme & içme","Food & beverage","1 Reel"]]},{"id":"georgia","name_tr":"Gürcistan","name_en":"Georgia","summary_tr":"Tiflis merkezli otel ve restoran deneyimlerini şehir hikayesiyle birleştiren içerikler.","summary_en":"Tbilisi-based hotel and restaurant content blended with city storytelling.","projects":[["Iasamani Restaurant","Restoran UGC","Restaurant UGC","1 Reel"],["Apart.In Hotel Tbilisi","Otel içeriği","Hotel content","Reel · Fotoğraf"],["Ambrosiano Tbilisi","Gastronomi","Gastronomy","Reel"]]},{"id":"austria","name_tr":"Avusturya","name_en":"Austria","summary_tr":"Alp destinasyonlarında otel ve kış seyahati odaklı atmosferik içerikler.","summary_en":"Atmospheric hotel and winter travel content across Alpine destinations.","projects":[["Valluga Hotel","Kış oteli hikaye anlatımı","Winter hotel storytelling","Reel · Fotoğraf"],["Hotel Tradizio","Otel deneyimi","Hotel experience","Reel"]]},{"id":"france","name_tr":"Fransa","name_en":"France","summary_tr":"Paris şehir deneyimi ve konaklama odağında kısa format seyahat içerikleri.","summary_en":"Short-form travel content focused on Paris stays and city experiences.","projects":[["B&B HOTEL Paris","Şehir oteli içeriği","City hotel content","Reel · Story"]]}];</script>
-<script src="assets/data/world-countries.js?v=20260727-2"></script>
-<script src="world-map.js?v=20260727-2"></script>
-<script src="page-script.js?v=20260727-2"></script>
+<script src="world-map.js?v=20260727-3"></script>
+<script src="page-script.js?v=20260727-3"></script>
 </body>
 </html>
