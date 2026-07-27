@@ -7,6 +7,9 @@
       const value = element.dataset[current];
       if (value) element.textContent = value;
     });
+    document.querySelectorAll('[data-tr-placeholder][data-en-placeholder]').forEach(element => {
+      element.placeholder = current === 'en' ? element.dataset.enPlaceholder : element.dataset.trPlaceholder;
+    });
     document.querySelectorAll('[data-page-language]').forEach(button => {
       const active = button.dataset.pageLanguage === current;
       button.classList.toggle('active', active);
