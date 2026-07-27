@@ -92,6 +92,20 @@
   modal?.addEventListener('click', event => { if (event.target === modal) closeModal(); });
   addEventListener('keydown', event => { if (event.key === 'Escape') closeModal(); });
 
+  const inquiryForm = document.getElementById('inquiryForm');
+  inquiryForm?.addEventListener('submit', event => {
+    event.preventDefault();
+    const data = new FormData(inquiryForm);
+    const current = lang();
+    const subject = current === 'en'
+      ? `Project Inquiry — ${data.get('name')}`
+      : `Proje Talebi — ${data.get('name')}`;
+    const body = current === 'en'
+      ? `Name / Brand: ${data.get('name')}\nEmail: ${data.get('email')}\nProject Type: ${data.get('project')}\nDestination & Dates: ${data.get('destination') || '-'}\n\nProject Details:\n${data.get('message')}`
+      : `Ad / Marka: ${data.get('name')}\nE-posta: ${data.get('email')}\nProje Türü: ${data.get('project')}\nDestinasyon & Tarih: ${data.get('destination') || '-'}\n\nProje Detayları:\n${data.get('message')}`;
+    location.href = `mailto:aycandkerem@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+
   const observer = new IntersectionObserver(entries => entries.forEach(entry => {
     if (!entry.isIntersecting) return;
     entry.target.classList.add('in-view');
