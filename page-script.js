@@ -47,3 +47,21 @@
     document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
   }
 })();
+
+
+// Cinematic reveal interactions
+(() => {
+  const elements = document.querySelectorAll('.reveal, .case-study-row');
+  if (!elements.length) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        const video = entry.target.querySelector('video[muted]');
+        if (video) video.play().catch(() => {});
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.14 });
+  elements.forEach(el => observer.observe(el));
+})();
