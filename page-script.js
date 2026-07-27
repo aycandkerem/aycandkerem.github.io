@@ -1,67 +1,82 @@
-
 (() => {
-  const getLang = () => localStorage.getItem('aycaKeremLanguage') === 'en' ? 'en' : 'tr';
-  const apply = () => {
-    const lang = getLang();
-    document.documentElement.lang = lang;
-    document.querySelectorAll('[data-tr][data-en]').forEach(el => {
-      const value = el.dataset[lang];
-      if (value) el.textContent = value;
+  const lang = () => localStorage.getItem('aycaKeremLanguage') === 'en' ? 'en' : 'tr';
+  const applyLanguage = () => {
+    const current = lang();
+    document.documentElement.lang = current;
+    document.querySelectorAll('[data-tr][data-en]').forEach(element => {
+      const value = element.dataset[current];
+      if (value) element.textContent = value;
     });
-    document.querySelectorAll('[data-page-language]').forEach(btn => btn.classList.toggle('active', btn.dataset.pageLanguage === lang));
+    document.querySelectorAll('[data-page-language]').forEach(button => {
+      const active = button.dataset.pageLanguage === current;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
   };
-  document.querySelectorAll('[data-page-language]').forEach(btn => btn.addEventListener('click', () => {
-    localStorage.setItem('aycaKeremLanguage', btn.dataset.pageLanguage);
-    window.location.reload();
+  document.querySelectorAll('[data-page-language]').forEach(button => button.addEventListener('click', () => {
+    localStorage.setItem('aycaKeremLanguage', button.dataset.pageLanguage);
+    location.reload();
   }));
-  apply();
+  applyLanguage();
 
+  const header = document.getElementById('siteHeader');
   const toggle = document.getElementById('menuToggle');
   const nav = document.getElementById('mainNav');
-  if(toggle && nav){
-    toggle.addEventListener('click',()=>{
-      const open = nav.classList.toggle('open');
-      toggle.classList.toggle('active',open);
-      toggle.setAttribute('aria-expanded',String(open));
-      document.body.classList.toggle('menu-open',open);
-    });
-    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')));
-  }
+  const closeMenu = () => {
+    nav?.classList.remove('open');
+    toggle?.classList.remove('active');
+    toggle?.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+  };
+  toggle?.setAttribute('aria-expanded', 'false');
+  toggle?.addEventListener('click', () => {
+    const open = !nav.classList.contains('open');
+    closeMenu();
+    if (open) {
+      nav.classList.add('open');
+      toggle.classList.add('active');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('menu-open');
+    }
+  });
+  nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  addEventListener('scroll', () => header?.classList.toggle('scrolled', scrollY > 30), { passive: true });
+  addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
 
-  document.querySelectorAll('[data-case-filter]').forEach(btn => btn.addEventListener('click',()=>{
-    document.querySelectorAll('[data-case-filter]').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    const filter=btn.dataset.caseFilter;
-    document.querySelectorAll('.case-card').forEach(card=>card.style.display=(filter==='all'||card.dataset.category===filter)?'block':'none');
+  document.querySelectorAll('[data-case-filter]').forEach(button => button.addEventListener('click', () => {
+    document.querySelectorAll('[data-case-filter]').forEach(item => item.classList.remove('active'));
+    button.classList.add('active');
+    const filter = button.dataset.caseFilter;
+    document.querySelectorAll('.case-study-row').forEach(row => {
+      row.hidden = filter !== 'all' && row.dataset.category !== filter;
+    });
   }));
 
-  const modal=document.getElementById('pageVideoModal');
-  if(modal){
-    const video=modal.querySelector('video');
-    document.querySelectorAll('.case-play').forEach(btn=>btn.addEventListener('click',()=>{
-      video.src=btn.dataset.video; modal.classList.add('open'); video.play();
-    }));
-    const close=()=>{video.pause();video.removeAttribute('src');modal.classList.remove('open')};
-    modal.querySelector('.page-video-close').addEventListener('click',close);
-    modal.addEventListener('click',e=>{if(e.target===modal)close()});
-    document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
-  }
-})();
+  const modal = document.getElementById('pageVideoModal');
+  const modalVideo = modal?.querySelector('video');
+  const closeModal = () => {
+    if (!modal || !modalVideo) return;
+    modal.classList.remove('open');
+    modalVideo.pause();
+    modalVideo.removeAttribute('src');
+    document.body.style.overflow = '';
+  };
+  document.querySelectorAll('.case-play-large').forEach(button => button.addEventListener('click', () => {
+    modalVideo.src = button.dataset.video;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    modalVideo.play().catch(() => {});
+  }));
+  modal?.querySelector('.page-video-close')?.addEventListener('click', closeModal);
+  modal?.addEventListener('click', event => { if (event.target === modal) closeModal(); });
+  addEventListener('keydown', event => { if (event.key === 'Escape') closeModal(); });
 
-
-// Cinematic reveal interactions
-(() => {
-  const elements = document.querySelectorAll('.reveal, .case-study-row');
-  if (!elements.length) return;
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        const video = entry.target.querySelector('video[muted]');
-        if (video) video.play().catch(() => {});
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.14 });
-  elements.forEach(el => observer.observe(el));
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('in-view');
+    const video = entry.target.querySelector?.('video');
+    video?.play().catch(() => {});
+    observer.unobserve(entry.target);
+  }), { threshold: .12 });
+  document.querySelectorAll('.reveal,.case-study-row').forEach(element => observer.observe(element));
 })();
