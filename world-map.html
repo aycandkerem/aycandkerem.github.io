@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Ayça ve Kerem'in dünya çapındaki otel, destinasyon ve marka iş birlikleri.">
+<title>Dünya Haritası | Ayça & Kerem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body class="subpage">
+
+<header class="site-header page-header" id="siteHeader">
+  <a class="brand" href="index.html"><span class="brand-main">Ayça &amp; Kerem</span><span class="brand-sub" data-tr="Yaratıcı Hikaye Anlatımı" data-en="Creative Storytelling">Yaratıcı Hikaye Anlatımı</span></a>
+  <button aria-label="Menüyü aç" class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+  <nav class="main-nav" id="mainNav">
+    <a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+    <a href="portfolio.html" data-tr="Portfolyo" data-en="Portfolio">Portfolyo</a>
+    <a href="world-map.html" data-tr="Dünya Haritası" data-en="World Map">Dünya Haritası</a>
+    <a href="about.html" data-tr="Hakkımızda" data-en="About">Hakkımızda</a>
+    <a class="nav-cta" href="contact.html" data-tr="İletişim" data-en="Contact">İletişim</a>
+  </nav>
+  <div class="language-switch"><button class="language-button" data-page-language="tr">TR</button><button class="language-button" data-page-language="en">EN</button></div>
+</header>
+
+<main>
+<section class="map-page">
+<div class="map-intro container">
+  <p class="section-kicker" data-tr="Dünya Çapında İş Birlikleri" data-en="Collaborations Around the World">Dünya Çapında İş Birlikleri</p>
+  <h1 data-tr="Her ışık, birlikte anlattığımız bir hikaye." data-en="Every light is a story we told together.">Her ışık, birlikte anlattığımız bir hikaye.</h1>
+  <p data-tr="Haritayı sürükleyin, yakınlaştırın veya bir ülkeye dokunarak projeleri keşfedin." data-en="Drag and zoom the map, or tap a country to explore its projects.">Haritayı sürükleyin, yakınlaştırın veya bir ülkeye dokunarak projeleri keşfedin.</p>
+</div>
+<div class="map-experience">
+  <div class="map-toolbar">
+    <button id="zoomOut" aria-label="Uzaklaştır">−</button><button id="resetMap" data-tr="Dünya" data-en="World">Dünya</button><button id="zoomIn" aria-label="Yakınlaştır">+</button>
+  </div>
+  <div class="interactive-map" id="interactiveMap">
+    <div class="map-stage" id="mapStage">
+      <svg viewBox="0 0 1000 520" aria-hidden="true">
+        <defs><radialGradient id="oceanGlow"><stop offset="0" stop-color="#17252a"/><stop offset="1" stop-color="#080a0b"/></radialGradient></defs>
+        <rect width="1000" height="520" fill="url(#oceanGlow)"/>
+        <g class="continents">
+          <path d="M58 126C91 76 171 52 247 82c50 20 67 67 111 79 34 9 73-4 98 23 15 17 11 41-9 53-31 19-82 4-110 35-21 24-9 63-35 80-29 19-61-16-84-34-32-25-91-26-120-62-29-35-62-91-40-130Z"/>
+          <path d="M302 325c32-24 80-12 98 26 22 45 7 108-22 143-18 22-48 17-62-9-22-42-49-119-14-160Z"/>
+          <path d="M466 111c27-42 81-56 130-45 47 11 85 46 135 45 58-1 106-27 162-9 39 12 94 48 80 87-12 36-74 43-109 51-48 11-87 32-135 32-44 0-76-21-120-20-34 1-66 18-99 9-36-10-64-49-60-88 2-24 12-43 16-62Z"/>
+          <path d="M560 269c46-18 105 0 131 44 31 54 10 128-34 169-27 26-70 25-94-6-34-44-62-157-3-207Z"/>
+          <path d="M830 348c35-23 86-16 113 14 23 24 15 61-16 74-41 18-105 10-126-31-12-23 9-43 29-57Z"/>
+        </g>
+      </svg>
+      <button class="map-marker" style="--x:52%;--y:41%;" data-country="turkiye" aria-label="Türkiye"><span></span><b data-tr="Türkiye" data-en="Türkiye">Türkiye</b></button><button class="map-marker" style="--x:56%;--y:70%;" data-country="mauritius" aria-label="Mauritius"><span></span><b data-tr="Mauritius" data-en="Mauritius">Mauritius</b></button><button class="map-marker" style="--x:48%;--y:40%;" data-country="italy" aria-label="İtalya"><span></span><b data-tr="İtalya" data-en="Italy">İtalya</b></button><button class="map-marker" style="--x:56%;--y:40%;" data-country="georgia" aria-label="Gürcistan"><span></span><b data-tr="Gürcistan" data-en="Georgia">Gürcistan</b></button><button class="map-marker" style="--x:50%;--y:37%;" data-country="austria" aria-label="Avusturya"><span></span><b data-tr="Avusturya" data-en="Austria">Avusturya</b></button><button class="map-marker" style="--x:44%;--y:40%;" data-country="france" aria-label="Fransa"><span></span><b data-tr="Fransa" data-en="France">Fransa</b></button>
+    </div>
+  </div>
+  <aside class="country-panel" id="countryPanel">
+    <button class="panel-close" id="panelClose">×</button>
+    <p class="panel-kicker" data-tr="Seçili Ülke" data-en="Selected Country">Seçili Ülke</p>
+    <h2 id="countryName">Mauritius</h2>
+    <p id="countrySummary"></p>
+    <div class="country-stats"><div><strong id="projectCount">4</strong><span data-tr="Proje" data-en="Projects">Proje</span></div><div><strong id="brandCount">4</strong><span data-tr="Marka" data-en="Brands">Marka</span></div></div>
+    <div class="country-projects" id="countryProjects"></div>
+  </aside>
+</div>
+<section class="map-summary container"><div><strong>6</strong><span data-tr="Ülke" data-en="Countries">Ülke</span></div><div><strong>20+</strong><span data-tr="Marka" data-en="Brands">Marka</span></div><div><strong>100+</strong><span data-tr="İş Birliği" data-en="Collaborations">İş Birliği</span></div></section>
+</section>
+<script>window.WORLD_MAP_DATA = [{"id": "turkiye", "name_tr": "Türkiye", "name_en": "Türkiye", "x": 52, "y": 41, "zoom": 2.4, "summary_tr": "Otel, restoran, turizm ve ürün markaları için sinematik UGC ve sosyal medya içerikleri.", "summary_en": "Cinematic UGC and social content for hotels, restaurants, tourism and product brands.", "projects": [["InterContinental Istanbul", "Otel Storytelling", "Hotel Storytelling", "1 Reel"], ["Altunizade Suites Istanbul", "Otel & Lifestyle", "Hotel & Lifestyle", "Reel · Fotoğraf"], ["Alden Hotel Cappadocia", "Destinasyon & Otel", "Destination & Hotel", "Reel · Story"], ["Mark Ryden Türkiye", "Ürün UGC", "Product UGC", "1 Reel"]]}, {"id": "mauritius", "name_tr": "Mauritius", "name_en": "Mauritius", "x": 56, "y": 70, "zoom": 3.2, "summary_tr": "Balayı, resort, gastronomi ve ada deneyimi odağında tropikal hikaye anlatımı.", "summary_en": "Tropical storytelling focused on honeymoon, resorts, gastronomy and island experiences.", "projects": [["Hilton Mauritius Resort & Spa", "Otel Hikaye Anlatımı", "Hotel Storytelling", "1 Reel · 25+ Fotoğraf · 8+ Story"], ["Heritage Resorts", "Resort & Destinasyon", "Resort & Destination", "Reel · Fotoğraf · Story"], ["Le Château de Bel Ombre", "Gastronomi Deneyimi", "Dining Experience", "1 Reel"], ["Anba Soley Airbnb", "Konaklama UGC", "Stay UGC", "1 Reel"]]}, {"id": "italy", "name_tr": "İtalya", "name_en": "Italy", "x": 48, "y": 40, "zoom": 3.0, "summary_tr": "Kuzey İtalya'da otel, şarap, gastronomi ve yaşam tarzı deneyimleri.", "summary_en": "Hotel, wine, gastronomy and lifestyle experiences across Northern Italy.", "projects": [["Hotel Meandro", "Otel İçeriği", "Hotel Content", "Reel · Fotoğraf"], ["Castel Sallegg", "Şarap & Deneyim", "Wine & Experience", "Reel · Fotoğraf"], ["Pizzeria Rössl", "Yeme & İçme", "Food & Beverage", "1 Reel"]]}, {"id": "georgia", "name_tr": "Gürcistan", "name_en": "Georgia", "x": 56, "y": 40, "zoom": 3.0, "summary_tr": "Tiflis merkezli otel ve restoran deneyimlerini şehir hikayesiyle birleştiren içerikler.", "summary_en": "Tbilisi-based hotel and restaurant content blended with city storytelling.", "projects": [["Iasamani Restaurant", "Restoran UGC", "Restaurant UGC", "1 Reel"], ["Apart.In Hotel Tbilisi", "Otel İçeriği", "Hotel Content", "Reel · Fotoğraf"], ["Ambrosiano Tbilisi", "Gastronomi", "Gastronomy", "Reel"]]}, {"id": "austria", "name_tr": "Avusturya", "name_en": "Austria", "x": 50, "y": 37, "zoom": 3.1, "summary_tr": "Alp destinasyonlarında otel ve kış seyahati odaklı atmosferik içerikler.", "summary_en": "Atmospheric hotel and winter travel content across Alpine destinations.", "projects": [["Valluga Hotel", "Kış Oteli Storytelling", "Winter Hotel Storytelling", "Reel · Fotoğraf"], ["Hotel Tradizio", "Otel Deneyimi", "Hotel Experience", "Reel"]]}, {"id": "france", "name_tr": "Fransa", "name_en": "France", "x": 44, "y": 40, "zoom": 3.0, "summary_tr": "Paris şehir deneyimi ve konaklama odağında kısa format seyahat içerikleri.", "summary_en": "Short-form travel content focused on Paris stays and city experiences.", "projects": [["B&B HOTEL Paris", "Şehir Oteli İçeriği", "City Hotel Content", "Reel · Story"]]}];</script>
+<script src="world-map.js"></script>
+</main>
+
+<footer class="subpage-footer">
+  <div class="container subpage-footer-inner">
+    <div><strong>Ayça &amp; Kerem</strong><span data-tr="Yaratıcı Hikaye Anlatımı" data-en="Creative Storytelling">Yaratıcı Hikaye Anlatımı</span></div>
+    <nav><a href="portfolio.html" data-tr="Portfolyo" data-en="Portfolio">Portfolyo</a><a href="world-map.html" data-tr="Dünya Haritası" data-en="World Map">Dünya Haritası</a><a href="contact.html" data-tr="İletişim" data-en="Contact">İletişim</a></nav>
+    <p>© 2026 Ayça &amp; Kerem</p>
+  </div>
+</footer>
+<script src="page-script.js"></script>
+
+
+</body>
+</html>
