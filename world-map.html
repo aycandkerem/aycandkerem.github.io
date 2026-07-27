@@ -39,43 +39,10 @@
       <button id="resetMap" data-tr="Dünya Görünümü" data-en="World View">Dünya Görünümü</button>
     </div>
 
-    <div class="globe-stage" id="interactiveMap">
-      <div class="globe-orbit" id="mapStage">
-        <div class="globe-sphere">
-          <svg class="globe-svg" viewBox="0 0 1000 1000" aria-hidden="true">
-            <defs>
-              <radialGradient id="globeOcean" cx="35%" cy="28%">
-                <stop offset="0%" stop-color="#16313a"/>
-                <stop offset="55%" stop-color="#0b171c"/>
-                <stop offset="100%" stop-color="#030506"/>
-              </radialGradient>
-              <filter id="softGlow"><feGaussianBlur stdDeviation="8"/></filter>
-              <clipPath id="sphereClip"><circle cx="500" cy="500" r="390"/></clipPath>
-            </defs>
-            <circle cx="500" cy="500" r="404" fill="none" stroke="rgba(155,210,220,.14)" stroke-width="2"/>
-            <circle cx="500" cy="500" r="390" fill="url(#globeOcean)"/>
-            <g clip-path="url(#sphereClip)" class="globe-lines">
-              <ellipse cx="500" cy="500" rx="390" ry="130"/>
-              <ellipse cx="500" cy="500" rx="390" ry="245"/>
-              <ellipse cx="500" cy="500" rx="175" ry="390"/>
-              <ellipse cx="500" cy="500" rx="300" ry="390"/>
-              <line x1="110" y1="500" x2="890" y2="500"/>
-              <path d="M170 350C260 245 350 220 425 280c70 56 110 38 170 4 72-41 154-20 236 91"/>
-              <path d="M240 590c70-55 135-62 198-12 51 41 92 33 150-13 71-56 135-40 190 24"/>
-              <path d="M390 320c40-55 98-75 155-58 47 13 82 50 137 44 49-5 84-29 128-12"/>
-              <path d="M490 515c43-30 100-17 126 30 34 61 8 145-47 185-45 33-92 12-113-38-24-57-16-142 34-177"/>
-            </g>
-            <circle cx="350" cy="290" r="85" fill="#21434b" opacity=".9"/>
-            <path d="M300 390c46-38 118-29 151 27 28 48 8 108-31 137-45 33-101 10-122-39-19-46-10-92 2-125Z" fill="#21434b"/>
-            <path d="M525 275c55-49 149-59 212-16 53 36 82 101 154 111-15 47-72 63-120 75-67 17-126 45-194 30-54-12-102-76-52-200Z" fill="#21434b"/>
-            <path d="M575 510c50-31 120-6 145 49 30 66-3 155-64 195-45 29-91 9-116-38-30-55-20-171 35-206Z" fill="#21434b"/>
-            <path d="M744 657c40-28 99-20 128 15 21 25 12 62-21 77-47 21-111 4-133-40-10-21 7-38 26-52Z" fill="#21434b"/>
-          </svg>
-          <div class="globe-light"></div>
-          <div class="globe-shadow"></div>
-          <div class="globe-markers" id="globeMarkers"></div>
-        </div>
-      </div>
+    <div class="globe-stage" id="interactiveMap" aria-label="Etkileşimli üç boyutlu dünya">
+      <canvas id="globeCanvas"></canvas>
+      <div class="globe-markers" id="globeMarkers"></div>
+      <p class="globe-hint" data-tr="Döndürmek için sürükleyin · Yakınlaşmak için kontrolleri kullanın" data-en="Drag to rotate · Use the controls to zoom">Döndürmek için sürükleyin · Yakınlaşmak için kontrolleri kullanın</p>
     </div>
 
     <aside class="cinematic-country-panel" id="countryPanel">
@@ -98,6 +65,7 @@
   </section>
 </section>
 <script>window.WORLD_MAP_DATA = [{"id": "turkiye", "name_tr": "Türkiye", "name_en": "Türkiye", "x": 52, "y": 41, "zoom": 2.4, "summary_tr": "Otel, restoran, turizm ve ürün markaları için sinematik UGC ve sosyal medya içerikleri.", "summary_en": "Cinematic UGC and social content for hotels, restaurants, tourism and product brands.", "projects": [["InterContinental Istanbul", "Otel Storytelling", "Hotel Storytelling", "1 Reel"], ["Altunizade Suites Istanbul", "Otel & Lifestyle", "Hotel & Lifestyle", "Reel · Fotoğraf"], ["Alden Hotel Cappadocia", "Destinasyon & Otel", "Destination & Hotel", "Reel · Story"], ["Mark Ryden Türkiye", "Ürün UGC", "Product UGC", "1 Reel"]]}, {"id": "mauritius", "name_tr": "Mauritius", "name_en": "Mauritius", "x": 56, "y": 70, "zoom": 3.2, "summary_tr": "Balayı, resort, gastronomi ve ada deneyimi odağında tropikal hikaye anlatımı.", "summary_en": "Tropical storytelling focused on honeymoon, resorts, gastronomy and island experiences.", "projects": [["Hilton Mauritius Resort & Spa", "Otel Hikaye Anlatımı", "Hotel Storytelling", "1 Reel · 25+ Fotoğraf · 8+ Story"], ["Heritage Resorts", "Resort & Destinasyon", "Resort & Destination", "Reel · Fotoğraf · Story"], ["Le Château de Bel Ombre", "Gastronomi Deneyimi", "Dining Experience", "1 Reel"], ["Anba Soley Airbnb", "Konaklama UGC", "Stay UGC", "1 Reel"]]}, {"id": "italy", "name_tr": "İtalya", "name_en": "Italy", "x": 48, "y": 40, "zoom": 3.0, "summary_tr": "Kuzey İtalya'da otel, şarap, gastronomi ve yaşam tarzı deneyimleri.", "summary_en": "Hotel, wine, gastronomy and lifestyle experiences across Northern Italy.", "projects": [["Hotel Meandro", "Otel İçeriği", "Hotel Content", "Reel · Fotoğraf"], ["Castel Sallegg", "Şarap & Deneyim", "Wine & Experience", "Reel · Fotoğraf"], ["Pizzeria Rössl", "Yeme & İçme", "Food & Beverage", "1 Reel"]]}, {"id": "georgia", "name_tr": "Gürcistan", "name_en": "Georgia", "x": 56, "y": 40, "zoom": 3.0, "summary_tr": "Tiflis merkezli otel ve restoran deneyimlerini şehir hikayesiyle birleştiren içerikler.", "summary_en": "Tbilisi-based hotel and restaurant content blended with city storytelling.", "projects": [["Iasamani Restaurant", "Restoran UGC", "Restaurant UGC", "1 Reel"], ["Apart.In Hotel Tbilisi", "Otel İçeriği", "Hotel Content", "Reel · Fotoğraf"], ["Ambrosiano Tbilisi", "Gastronomi", "Gastronomy", "Reel"]]}, {"id": "austria", "name_tr": "Avusturya", "name_en": "Austria", "x": 50, "y": 37, "zoom": 3.1, "summary_tr": "Alp destinasyonlarında otel ve kış seyahati odaklı atmosferik içerikler.", "summary_en": "Atmospheric hotel and winter travel content across Alpine destinations.", "projects": [["Valluga Hotel", "Kış Oteli Storytelling", "Winter Hotel Storytelling", "Reel · Fotoğraf"], ["Hotel Tradizio", "Otel Deneyimi", "Hotel Experience", "Reel"]]}, {"id": "france", "name_tr": "Fransa", "name_en": "France", "x": 44, "y": 40, "zoom": 3.0, "summary_tr": "Paris şehir deneyimi ve konaklama odağında kısa format seyahat içerikleri.", "summary_en": "Short-form travel content focused on Paris stays and city experiences.", "projects": [["B&B HOTEL Paris", "Şehir Oteli İçeriği", "City Hotel Content", "Reel · Story"]]}];</script>
+<script src="assets/data/world-countries.js"></script>
 <script src="world-map.js"></script>
 </main>
 
