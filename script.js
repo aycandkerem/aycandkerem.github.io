@@ -279,3 +279,45 @@ const header=document.getElementById('siteHeader'),menuToggle=document.getElemen
     if (window.innerWidth > 820) closeMenuWith(cleanToggle);
   });
 })();
+
+
+// Video modal close safety
+(() => {
+  const modal =
+    document.querySelector('.video-modal') ||
+    document.querySelector('[data-video-modal]') ||
+    document.querySelector('.modal-video-wrap');
+
+  if (!modal) return;
+
+  let closeButton =
+    modal.querySelector('.video-modal-close') ||
+    modal.querySelector('.modal-close');
+
+  if (!closeButton) {
+    closeButton = document.createElement('button');
+    closeButton.type = 'button';
+    closeButton.className = 'video-modal-close';
+    closeButton.setAttribute('aria-label', 'Videoyu kapat');
+    closeButton.innerHTML = '×';
+    modal.appendChild(closeButton);
+  }
+
+  const closeModal = () => {
+    modal.classList.remove('open', 'active', 'show');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open', 'video-modal-open');
+
+    const video = modal.querySelector('video');
+    if (video) {
+      video.pause();
+      try { video.currentTime = 0; } catch (_) {}
+    }
+  };
+
+  closeButton.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeModal();
+  });
+})();
