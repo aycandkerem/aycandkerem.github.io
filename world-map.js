@@ -27,6 +27,7 @@
 
     document.querySelectorAll('[data-country-select]').forEach(button =>
       button.classList.toggle('active', button.dataset.countrySelect === countryId));
+    panel.classList.toggle('has-overflow', country.projects.length > 4);
     panel.classList.add('open');
     shell.classList.add('detail-open');
   }
