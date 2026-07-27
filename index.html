@@ -3,42 +3,508 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Ayça &amp; Kerem — Oteller, destinasyonlar, restoranlar ve yaşam tarzı markaları için sinematik UGC ve yaratıcı hikâye anlatımı." name="description"/>
-<title>Ayça &amp; Kerem | Yaratıcı Hikâye Anlatımı</title>
+<meta content="Ayça &amp; Kerem — Oteller, destinasyonlar, restoranlar ve yaşam tarzı markaları için sinematik UGC ve yaratıcı hikâye anlatımı." data-i18n-content="meta.description" name="description"/>
+<title data-i18n-title="meta.title">Ayça &amp; Kerem | Yaratıcı Hikâye Anlatımı</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="style.css" rel="stylesheet"/>
 </head>
 <body>
+<div aria-labelledby="languagePopupTitle" aria-modal="true" class="language-popup" id="languagePopup" role="dialog">
+<div class="language-popup-backdrop"></div>
+<div class="language-popup-card">
+<p class="language-popup-kicker">AYÇA &amp; KEREM</p>
+<h2 id="languagePopupTitle">Dil seçin <span>Choose your language</span></h2>
+<p>Site Türkçe açıldı. Dilerseniz İngilizce devam edebilirsiniz.</p>
+<div class="language-popup-actions">
+<button data-popup-language="tr" type="button"><strong>Türkçe</strong><span>Türkçe devam et</span></button>
+<button data-popup-language="en" type="button"><strong>English</strong><span>Continue in English</span></button>
+</div>
+</div>
+</div>
+
 <header class="site-header" id="siteHeader">
-<a class="brand" href="#hero"><span class="brand-main">Ayça &amp; Kerem</span><span class="brand-sub">Yaratıcı Hikâye Anlatımı</span></a>
-<button aria-label="Menüyü aç" class="menu-toggle" id="menuToggle"><span></span><span></span></button>
-<nav class="main-nav" id="mainNav"><a href="#hakkimizda">Biz Kimiz?</a><a href="#portfolyo">Portfolyo</a><a href="#deger">Nasıl Değer Katıyoruz?</a><a href="#paketler">Paketler</a><a href="#markalar">Markalar</a><a class="nav-cta" href="#iletisim">İletişim</a></nav>
-</header>
+<a class="brand" href="#hero"><span class="brand-main" data-i18n="brand.name">Ayça &amp; Kerem</span><span class="brand-sub" data-i18n="brand.subtitle">Yaratıcı Hikâye Anlatımı</span></a>
+<button aria-label="Menüyü aç" class="menu-toggle" data-i18n-aria="aria.menu" id="menuToggle"><span></span><span></span></button>
+<nav class="main-nav" id="mainNav"><a data-i18n="nav.about" href="#hakkimizda">Biz Kimiz?</a><a data-i18n="nav.portfolio" href="#portfolyo">Portfolyo</a><a data-i18n="nav.value" href="#deger">Nasıl Değer Katıyoruz?</a><a data-i18n="nav.packages" href="#paketler">Paketler</a><a data-i18n="nav.brands" href="#markalar">Markalar</a><a class="nav-cta" data-i18n="nav.contact" href="#iletisim">İletişim</a></nav>
+<div aria-label="Language selector" class="language-switch"><button class="language-button active" data-language="tr" type="button">TR</button><button class="language-button" data-language="en" type="button">EN</button></div></header>
 <main>
 <section class="hero" id="hero">
 <video autoplay="" class="hero-video" loop="" muted="" playsinline="" poster="assets/images/hero-poster.webp" preload="metadata"><source src="assets/videos/hero.mp4" type="video/mp4"/></video><div class="hero-overlay"></div>
-<div class="hero-content container"><p class="eyebrow reveal">Ayça &amp; Kerem · Yaratıcı Stüdyo</p><h1 class="reveal">İnsanlar yalnızca bir otel rezervasyonu yapmaz.<span>Kendilerini o hikâyenin içinde hayal eder.</span></h1><p class="hero-copy reveal">Oteller, destinasyonlar, restoranlar ve yaşam tarzı markaları için hissi merkeze alan sinematik içerikler üretiyoruz.</p><div class="hero-actions reveal"><a class="button button-light" href="#portfolyo">Portfolyoyu İncele</a><a class="button button-ghost" href="#iletisim">İş Birliği Yapalım</a></div></div>
+<div class="hero-content container"><p class="eyebrow reveal" data-i18n="hero.eyebrow">Ayça &amp; Kerem · Yaratıcı Stüdyo</p><h1 class="reveal" data-i18n="hero.title1">İnsanlar yalnızca bir otel rezervasyonu yapmaz.<span data-i18n="hero.title2">Kendilerini o hikâyenin içinde hayal eder.</span></h1><p class="hero-copy reveal" data-i18n="hero.copy">Oteller, destinasyonlar, restoranlar ve yaşam tarzı markaları için hissi merkeze alan sinematik içerikler üretiyoruz.</p><div class="hero-actions reveal"><a class="button button-light" data-i18n="hero.portfolio" href="#portfolyo">Portfolyoyu İncele</a><a class="button button-ghost" data-i18n="hero.collab" href="#iletisim">İş Birliği Yapalım</a></div></div>
 <a class="scroll-indicator" href="#hakkimizda"><span></span></a>
 </section>
-<section class="section about" id="hakkimizda"><div class="container about-grid"><div class="about-copy"><p class="section-kicker reveal">Biz Kimiz?</p><h2 class="section-title reveal">Biz içerik üretmiyoruz.<span>Deneyimleri hikâyeye dönüştürüyoruz.</span></h2><p class="section-text reveal">Her otelin, her destinasyonun ve her markanın kendine özgü bir hikâyesi olduğuna inanıyoruz. Bu yüzden yalnızca güzel görüntüler çekmiyor; insanların kendilerini o deneyimin içinde hayal edebileceği içerikler üretiyoruz.</p><p class="section-text reveal">Doğal çift dinamiğimiz, sinematik anlatımımız ve detaylara verdiğimiz önemle markaların sosyal medya, reklam ve web kanallarında uzun süre kullanabileceği güçlü bir içerik arşivi oluşturuyoruz.</p><div class="stats-grid"><article class="stat-card reveal"><strong>100+</strong><span>Marka İş Birliği</span></article><article class="stat-card reveal"><strong>55K+</strong><span>Toplam Sosyal Medya Topluluğu</span></article><article class="stat-card reveal"><strong>Storytelling</strong><span>UGC &amp; Sinematik Prodüksiyon</span></article></div></div>
-<div class="photo-collage"><figure class="collage-card collage-card-one reveal"><img alt="Ayça ve Kerem birlikte içerik üretirken" src="assets/images/about-1.jpg"/></figure><figure class="collage-card collage-card-two reveal"><img alt="Kamera arkasında yaratıcı prodüksiyon süreci" src="assets/images/about-2.jpg"/></figure><figure class="collage-card collage-card-three reveal"><img alt="Ayça ve Kerem seyahat hikâyesi çekerken" src="assets/images/about-3.jpg"/></figure><div class="collage-label label-one">Yaratıcı Yönetim</div><div class="collage-label label-two">Prodüksiyon</div><div class="collage-label label-three">Hikâye Anlatımı</div></div></div></section>
-<section class="section portfolio-section" id="portfolyo"><div class="container"><div class="section-heading-row"><div><p class="section-kicker reveal">Portfolyo</p><h2 class="section-title reveal">Farklı perspektiflerden kısa bir seçki.</h2></div><p class="section-text compact reveal">Otellerden restoranlara, destinasyonlardan ürün odaklı UGC içeriklerine kadar farklı çalışma alanlarımızı tek bakışta keşfedin.</p></div>
-<div class="portfolio-filters reveal"><button class="filter-button active" data-filter="all">Tümü</button><button class="filter-button" data-filter="otel">Oteller</button><button class="filter-button" data-filter="restoran">Restoranlar</button><button class="filter-button" data-filter="destinasyon">Destinasyonlar</button><button class="filter-button" data-filter="ugc">UGC</button><button class="filter-button" data-filter="lifestyle">Lifestyle</button></div><div class="phone-grid"><article class="portfolio-item reveal" data-category="otel"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" data-src="assets/videos/portfolio-1.mp4" loop="" muted="" playsinline="" preload="none"></video><button aria-label="Hilton Mauritius videosunu aç" class="video-open" data-video="assets/videos/portfolio-1.mp4"><span>İzle</span></button></div><div class="project-meta"><h3>Hilton Mauritius</h3><p>Otel Hikâye Anlatımı</p></div></article><article class="portfolio-item reveal" data-category="destinasyon"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" data-src="assets/videos/portfolio-2.mp4" loop="" muted="" playsinline="" preload="none"></video><button aria-label="Heritage Resorts videosunu aç" class="video-open" data-video="assets/videos/portfolio-2.mp4"><span>İzle</span></button></div><div class="project-meta"><h3>Heritage Resorts</h3><p>Tropikal Adada Bir Günümüz</p></div></article><article class="portfolio-item reveal" data-category="restoran"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" data-src="assets/videos/portfolio-3.mp4" loop="" muted="" playsinline="" preload="none"></video><button aria-label="Iasamani Restaurant videosunu aç" class="video-open" data-video="assets/videos/portfolio-3.mp4"><span>İzle</span></button></div><div class="project-meta"><h3>Iasamani Restaurant</h3><p>Restoran UGC</p></div></article><article class="portfolio-item reveal" data-category="restoran"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" data-src="assets/videos/portfolio-4.mp4" loop="" muted="" playsinline="" preload="none"></video><button aria-label="Le Château de Bel Ombre videosunu aç" class="video-open" data-video="assets/videos/portfolio-4.mp4"><span>İzle</span></button></div><div class="project-meta"><h3>Le Château de Bel Ombre</h3><p>Romantik Bir Akşam Yemeği</p></div></article><article class="portfolio-item reveal" data-category="otel"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" data-src="assets/videos/portfolio-5.mp4" loop="" muted="" playsinline="" preload="none"></video><button aria-label="Anba Soley Airbnb videosunu aç" class="video-open" data-video="assets/videos/portfolio-5.mp4"><span>İzle</span></button></div><div class="project-meta"><h3>Anba Soley Airbnb</h3><p>Bir Hafta Sonu Kaçamağı</p></div></article><article class="portfolio-item reveal" data-category="restoran"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" data-src="assets/videos/portfolio-6.mp4" loop="" muted="" playsinline="" preload="none"></video><button aria-label="Heritage Resorts videosunu aç" class="video-open" data-video="assets/videos/portfolio-6.mp4"><span>İzle</span></button></div><div class="project-meta"><h3>Heritage Resorts</h3><p>İmza Akşam Yemeği Deneyimi</p></div></article><article class="portfolio-item reveal" data-category="ugc"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" data-src="assets/videos/portfolio-7.mp4" loop="" muted="" playsinline="" preload="none"></video><button aria-label="Mark Ryden videosunu aç" class="video-open" data-video="assets/videos/portfolio-7.mp4"><span>İzle</span></button></div><div class="project-meta"><h3>Mark Ryden</h3><p>Ürün Odaklı UGC</p></div></article><article class="portfolio-item reveal" data-category="restoran"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" data-src="assets/videos/portfolio-8.mp4" loop="" muted="" playsinline="" preload="none"></video><button aria-label="Pizzeria Rössl videosunu aç" class="video-open" data-video="assets/videos/portfolio-8.mp4"><span>İzle</span></button></div><div class="project-meta"><h3>Pizzeria Rössl</h3><p>Yeme &amp; İçme İçeriği</p></div></article><article class="portfolio-item reveal" data-category="lifestyle"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" data-src="assets/videos/portfolio-9.mp4" loop="" muted="" playsinline="" preload="none"></video><button aria-label="Couple Lifestyle videosunu aç" class="video-open" data-video="assets/videos/portfolio-9.mp4"><span>İzle</span></button></div><div class="project-meta"><h3>Couple Lifestyle</h3><p>Doğal Deneyim Anlatımı</p></div></article></div></div></section>
-<section class="section value-section" id="deger"><div class="container"><p class="section-kicker reveal">Markalara Nasıl Değer Katıyoruz?</p><h2 class="section-title reveal">Yalnızca içerik değil,<span>kullanılabilir bir marka varlığı üretiyoruz.</span></h2><div class="value-list">
-<article class="value-row reveal"><span class="value-number">01</span><div><h3>Hikâye Anlatımı Odaklı Videolar</h3><p>Markanızın atmosferini yalnızca göstermek değil, izleyiciye hissettirmek için üretiyoruz.</p></div><span class="value-tag">Reels · TikTok · Web</span></article>
-<article class="value-row reveal"><span class="value-number">02</span><div><h3>Doğal ve Güven Veren UGC</h3><p>Kendi hesaplarınızda ve reklam kampanyalarınızda kullanabileceğiniz samimi içerikler hazırlıyoruz.</p></div><span class="value-tag">Organik · Reklam · Kampanya</span></article>
-<article class="value-row reveal"><span class="value-number">03</span><div><h3>Profesyonel Fotoğraf Arşivi</h3><p>Sosyal medya, web sitesi ve rezervasyon platformları için uzun süre kullanılabilecek görseller üretiyoruz.</p></div><span class="value-tag">Sosyal Medya · Web · Rezervasyon</span></article>
-<article class="value-row reveal"><span class="value-number">04</span><div><h3>Uzun Vadeli İçerik Partnerliği</h3><p>Tek seferlik bir paylaşım yerine markanızın farklı iletişim ihtiyaçlarına cevap veren sürdürülebilir üretim sağlıyoruz.</p></div><span class="value-tag">Planlama · Prodüksiyon · Teslim</span></article>
+<section class="section about" id="hakkimizda"><div class="container about-grid"><div class="about-copy"><p class="section-kicker reveal" data-i18n="nav.about">Biz Kimiz?</p><h2 class="section-title reveal" data-i18n="about.title1">Biz içerik üretmiyoruz.<span data-i18n="about.title2">Deneyimleri hikâyeye dönüştürüyoruz.</span></h2><p class="section-text reveal" data-i18n="about.p1">Her otelin, her destinasyonun ve her markanın kendine özgü bir hikâyesi olduğuna inanıyoruz. Bu yüzden yalnızca güzel görüntüler çekmiyor; insanların kendilerini o deneyimin içinde hayal edebileceği içerikler üretiyoruz.</p><p class="section-text reveal" data-i18n="about.p2">Doğal çift dinamiğimiz, sinematik anlatımımız ve detaylara verdiğimiz önemle markaların sosyal medya, reklam ve web kanallarında uzun süre kullanabileceği güçlü bir içerik arşivi oluşturuyoruz.</p><div class="stats-grid"><article class="stat-card reveal"><strong>100+</strong><span data-i18n="stats.collabs">Marka İş Birliği</span></article><article class="stat-card reveal"><strong>55K+</strong><span data-i18n="stats.community">Toplam Sosyal Medya Topluluğu</span></article><article class="stat-card reveal"><strong>Storytelling</strong><span data-i18n="stats.production">UGC &amp; Sinematik Prodüksiyon</span></article></div></div>
+<div class="photo-collage"><figure class="collage-card collage-card-one reveal"><img alt="Ayça ve Kerem birlikte içerik üretirken" src="assets/images/about-1.jpg"/></figure><figure class="collage-card collage-card-two reveal"><img alt="Kamera arkasında yaratıcı prodüksiyon süreci" src="assets/images/about-2.jpg"/></figure><figure class="collage-card collage-card-three reveal"><img alt="Ayça ve Kerem seyahat hikâyesi çekerken" src="assets/images/about-3.jpg"/></figure><div class="collage-label label-one" data-i18n="about.creative">Yaratıcı Yönetim</div><div class="collage-label label-two" data-i18n="about.production">Prodüksiyon</div><div class="collage-label label-three" data-i18n="about.storytelling">Hikâye Anlatımı</div></div></div></section>
+<section class="section portfolio-section" id="portfolyo"><div class="container"><div class="section-heading-row"><div><p class="section-kicker reveal" data-i18n="nav.portfolio">Portfolyo</p><h2 class="section-title reveal" data-i18n="portfolio.title">Farklı perspektiflerden kısa bir seçki.</h2></div><p class="section-text compact reveal" data-i18n="portfolio.copy">Otellerden restoranlara, destinasyonlardan ürün odaklı UGC içeriklerine kadar farklı çalışma alanlarımızı tek bakışta keşfedin.</p></div>
+<div class="portfolio-filters reveal"><button class="filter-button active" data-filter="all" data-i18n="filters.all">Tümü</button><button class="filter-button" data-filter="otel" data-i18n="filters.hotels">Oteller</button><button class="filter-button" data-filter="restoran" data-i18n="filters.restaurants">Restoranlar</button><button class="filter-button" data-filter="destinasyon" data-i18n="filters.destinations">Destinasyonlar</button><button class="filter-button" data-filter="ugc">UGC</button><button class="filter-button" data-filter="lifestyle">Lifestyle</button></div><div class="phone-grid"><article class="portfolio-item reveal" data-category="otel"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" data-src="assets/videos/portfolio-1.mp4" loop="" muted="" playsinline="" preload="none"></video><button aria-label="Hilton Mauritius videosunu aç" class="video-open" data-i18n-aria="aria.video.1" data-video="assets/videos/portfolio-1.mp4"><span data-i18n="portfolio.watch">İzle</span></button></div><div class="project-meta"><h3>Hilton Mauritius</h3><p data-i18n="project.1">Otel Hikâye Anlatımı</p></div></article><article class="portfolio-item reveal" data-category="destinasyon"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" data-src="assets/videos/portfolio-2.mp4" loop="" muted="" playsinline="" preload="none"></video><button aria-label="Heritage Resorts videosunu aç" class="video-open" data-i18n-aria="aria.video.2" data-video="assets/videos/portfolio-2.mp4"><span data-i18n="portfolio.watch">İzle</span></button></div><div class="project-meta"><h3>Heritage Resorts</h3><p data-i18n="project.2">Tropikal Adada Bir Günümüz</p></div></article><article class="portfolio-item reveal" data-category="restoran"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" data-src="assets/videos/portfolio-3.mp4" loop="" muted="" playsinline="" preload="none"></video><button aria-label="Iasamani Restaurant videosunu aç" class="video-open" data-i18n-aria="aria.video.3" data-video="assets/videos/portfolio-3.mp4"><span data-i18n="portfolio.watch">İzle</span></button></div><div class="project-meta"><h3>Iasamani Restaurant</h3><p data-i18n="project.3">Restoran UGC</p></div></article><article class="portfolio-item reveal" data-category="restoran"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" data-src="assets/videos/portfolio-4.mp4" loop="" muted="" playsinline="" preload="none"></video><button aria-label="Le Château de Bel Ombre videosunu aç" class="video-open" data-i18n-aria="aria.video.4" data-video="assets/videos/portfolio-4.mp4"><span data-i18n="portfolio.watch">İzle</span></button></div><div class="project-meta"><h3>Le Château de Bel Ombre</h3><p data-i18n="project.4">Romantik Bir Akşam Yemeği</p></div></article><article class="portfolio-item reveal" data-category="otel"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" data-src="assets/videos/portfolio-5.mp4" loop="" muted="" playsinline="" preload="none"></video><button aria-label="Anba Soley Airbnb videosunu aç" class="video-open" data-i18n-aria="aria.video.5" data-video="assets/videos/portfolio-5.mp4"><span data-i18n="portfolio.watch">İzle</span></button></div><div class="project-meta"><h3>Anba Soley Airbnb</h3><p data-i18n="project.5">Bir Hafta Sonu Kaçamağı</p></div></article><article class="portfolio-item reveal" data-category="restoran"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" data-src="assets/videos/portfolio-6.mp4" loop="" muted="" playsinline="" preload="none"></video><button aria-label="Heritage Resorts videosunu aç" class="video-open" data-i18n-aria="aria.video.6" data-video="assets/videos/portfolio-6.mp4"><span data-i18n="portfolio.watch">İzle</span></button></div><div class="project-meta"><h3>Heritage Resorts</h3><p data-i18n="project.6">İmza Akşam Yemeği Deneyimi</p></div></article><article class="portfolio-item reveal" data-category="ugc"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" data-src="assets/videos/portfolio-7.mp4" loop="" muted="" playsinline="" preload="none"></video><button aria-label="Mark Ryden videosunu aç" class="video-open" data-i18n-aria="aria.video.7" data-video="assets/videos/portfolio-7.mp4"><span data-i18n="portfolio.watch">İzle</span></button></div><div class="project-meta"><h3>Mark Ryden</h3><p data-i18n="project.7">Ürün Odaklı UGC</p></div></article><article class="portfolio-item reveal" data-category="restoran"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" data-src="assets/videos/portfolio-8.mp4" loop="" muted="" playsinline="" preload="none"></video><button aria-label="Pizzeria Rössl videosunu aç" class="video-open" data-i18n-aria="aria.video.8" data-video="assets/videos/portfolio-8.mp4"><span data-i18n="portfolio.watch">İzle</span></button></div><div class="project-meta"><h3>Pizzeria Rössl</h3><p data-i18n="project.8">Yeme &amp; İçme İçeriği</p></div></article><article class="portfolio-item reveal" data-category="lifestyle"><div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" data-src="assets/videos/portfolio-9.mp4" loop="" muted="" playsinline="" preload="none"></video><button aria-label="Couple Lifestyle videosunu aç" class="video-open" data-i18n-aria="aria.video.9" data-video="assets/videos/portfolio-9.mp4"><span data-i18n="portfolio.watch">İzle</span></button></div><div class="project-meta"><h3>Couple Lifestyle</h3><p data-i18n="project.9">Doğal Deneyim Anlatımı</p></div></article></div></div></section>
+<section class="section value-section" id="deger"><div class="container"><p class="section-kicker reveal" data-i18n="value.kicker">Markalara Nasıl Değer Katıyoruz?</p><h2 class="section-title reveal" data-i18n="value.title1">Yalnızca içerik değil,<span data-i18n="value.title2">kullanılabilir bir marka varlığı üretiyoruz.</span></h2><div class="value-list">
+<article class="value-row reveal"><span class="value-number">01</span><div><h3 data-i18n="value.1.title">Hikâye Anlatımı Odaklı Videolar</h3><p data-i18n="value.1.copy">Markanızın atmosferini yalnızca göstermek değil, izleyiciye hissettirmek için üretiyoruz.</p></div><span class="value-tag" data-i18n="value.1.tag">Reels · TikTok · Web</span></article>
+<article class="value-row reveal"><span class="value-number">02</span><div><h3 data-i18n="value.2.title">Doğal ve Güven Veren UGC</h3><p data-i18n="value.2.copy">Kendi hesaplarınızda ve reklam kampanyalarınızda kullanabileceğiniz samimi içerikler hazırlıyoruz.</p></div><span class="value-tag" data-i18n="value.2.tag">Organik · Reklam · Kampanya</span></article>
+<article class="value-row reveal"><span class="value-number">03</span><div><h3 data-i18n="value.3.title">Profesyonel Fotoğraf Arşivi</h3><p data-i18n="value.3.copy">Sosyal medya, web sitesi ve rezervasyon platformları için uzun süre kullanılabilecek görseller üretiyoruz.</p></div><span class="value-tag" data-i18n="value.3.tag">Sosyal Medya · Web · Rezervasyon</span></article>
+<article class="value-row reveal"><span class="value-number">04</span><div><h3 data-i18n="value.4.title">Uzun Vadeli İçerik Partnerliği</h3><p data-i18n="value.4.copy">Tek seferlik bir paylaşım yerine markanızın farklı iletişim ihtiyaçlarına cevap veren sürdürülebilir üretim sağlıyoruz.</p></div><span class="value-tag" data-i18n="value.4.tag">Planlama · Prodüksiyon · Teslim</span></article>
 </div></div></section>
-<section class="section packages-section" id="paketler"><div class="container"><div class="section-heading-row"><div><p class="section-kicker reveal">Çalışma Modelleri</p><h2 class="section-title reveal">Markanıza uygun içerik paketini birlikte oluşturalım.</h2></div><p class="section-text compact reveal">Aşağıdaki paketler en sık tercih edilen çalışma modellerimizi temsil eder. Her iş birliği ihtiyaca göre özelleştirilebilir.</p></div><div class="packages-grid">
-<article class="package-card reveal"><p class="package-label">Başlangıç</p><h3>Starter</h3><p class="package-intro">İlk içerik üretimi için yalın ve etkili bir başlangıç.</p><ul><li>1 sinematik UGC video</li><li>Mekân ve atmosfer odaklı çekim</li><li>Marka kullanım hakları</li><li>Sosyal medya ve web kullanımına uygun teslim</li></ul><a href="#iletisim">Teklif Al</a></article>
-<article class="package-card featured reveal"><span class="popular-badge">En Çok Tercih Edilen</span><p class="package-label">İçerik Arşivi</p><h3>Signature</h3><p class="package-intro">Farklı hedeflere hizmet eden kapsamlı bir marka içerik arşivi.</p><ul><li>3 sinematik UGC video</li><li>Experience konsepti</li><li>Lifestyle konsepti</li><li>Product konsepti</li><li>10 profesyonel fotoğraf</li><li>Organik ve reklam kullanımına uygun içerikler</li></ul><a href="#iletisim">Teklif Al</a></article>
-<article class="package-card reveal"><p class="package-label">İçerik + Görünürlük</p><h3>Creator Partner</h3><p class="package-intro">İçeriğin yanında sosyal medya görünürlüğü isteyen markalar için.</p><ul><li>Signature paketinin tamamı</li><li>Instagram paylaşımı</li><li>Story desteği</li><li>Ortak paylaşım seçeneği</li><li>Vlog veya deneyim odaklı içerik</li></ul><a href="#iletisim">Teklif Al</a></article>
-<article class="package-card reveal"><p class="package-label">Size Özel</p><h3>Custom</h3><p class="package-intro">Kapsamı ve teslim planı tamamen markanıza göre oluşturulur.</p><ul><li>Lansman kampanyaları</li><li>Çok lokasyonlu çekimler</li><li>Otel zincirleri</li><li>Destinasyon tanıtımları</li><li>Uzun dönem içerik üretimi</li><li>Size özel teslim planı</li></ul><a href="#iletisim">Birlikte Planlayalım</a></article>
-</div><p class="packages-note reveal">Tüm çalışma modellerimiz markanızın ihtiyaçlarına, kullanım alanlarına ve proje kapsamına göre özelleştirilebilir.</p></div></section>
-<section class="section brands-section" id="markalar"><div class="container brands-heading"><p class="section-kicker reveal">Referanslar</p><h2 class="section-title reveal">Birlikte hikâyeler ürettiğimiz markalar.</h2><p class="section-text compact reveal">Otellerden destinasyonlara, restoranlardan global markalara uzanan iş birlikleri.</p></div><div class="logo-marquee"><div class="logo-track"><div class="brand-item"><img alt="Hilton Mauritius Resort &amp; Spa logosu" loading="lazy" src="assets/brands/hilton-mauritius.png"/><span>Hilton Mauritius Resort &amp; Spa</span></div><div class="brand-item"><img alt="Anatotour logosu" loading="lazy" src="assets/brands/anatotour.png"/><span>Anatotour</span></div><div class="brand-item"><img alt="Le Château de Bel Ombre logosu" loading="lazy" src="assets/brands/le-chateau-de-bel-ombre.png"/><span>Le Château de Bel Ombre</span></div><div class="brand-item"><img alt="Heritage Resorts logosu" loading="lazy" src="assets/brands/heritage-resorts.png"/><span>Heritage Resorts</span></div><div class="brand-item"><img alt="Mark Ryden Türkiye logosu" loading="lazy" src="assets/brands/mark-ryden-turkiye.png"/><span>Mark Ryden Türkiye</span></div><div class="brand-item"><img alt="Hotel Meandro logosu" loading="lazy" src="assets/brands/hotel-meandro.png"/><span>Hotel Meandro</span></div><div class="brand-item"><img alt="Pizzeria Rössl logosu" loading="lazy" src="assets/brands/pizzeria-roessl.png"/><span>Pizzeria Rössl</span></div><div class="brand-item"><img alt="Castel Sallegg logosu" loading="lazy" src="assets/brands/castel-sallegg.png"/><span>Castel Sallegg</span></div><div class="brand-item"><img alt="Glarros Old Town Hotel logosu" loading="lazy" src="assets/brands/glarros-old-town-hotel.png"/><span>Glarros Old Town Hotel</span></div><div class="brand-item"><img alt="Iasamani Restaurant logosu" loading="lazy" src="assets/brands/iasamani-restaurant.png"/><span>Iasamani Restaurant</span></div><div class="brand-item"><img alt="Apart.In Hotel Tbilisi logosu" loading="lazy" src="assets/brands/apart-in-hotel-tbilisi.png"/><span>Apart.In Hotel Tbilisi</span></div><div class="brand-item"><img alt="Valluga Hotel logosu" loading="lazy" src="assets/brands/valluga-hotel.png"/><span>Valluga Hotel</span></div><div class="brand-item"><img alt="Hotel Tradizio logosu" loading="lazy" src="assets/brands/hotel-tradizio.png"/><span>Hotel Tradizio</span></div><div class="brand-item"><img alt="InterContinental Istanbul logosu" loading="lazy" src="assets/brands/intercontinental-istanbul.png"/><span>InterContinental Istanbul</span></div><div class="brand-item"><img alt="Altunizade Suites Istanbul logosu" loading="lazy" src="assets/brands/altunizade-suites.png"/><span>Altunizade Suites Istanbul</span></div><div class="brand-item"><img alt="Alden Hotel Cappadocia logosu" loading="lazy" src="assets/brands/alden-hotel-cappadocia.png"/><span>Alden Hotel Cappadocia</span></div><div class="brand-item"><img alt="GetYourGuide logosu" loading="lazy" src="assets/brands/getyourguide.png"/><span>GetYourGuide</span></div><div class="brand-item"><img alt="B&amp;B HOTEL Paris logosu" loading="lazy" src="assets/brands/bb-hotel-paris.png"/><span>B&amp;B HOTEL Paris</span></div><div class="brand-item"><img alt="Canela Cave Hotel logosu" loading="lazy" src="assets/brands/canela-cave-cappadocia.png"/><span>Canela Cave Hotel</span></div><div class="brand-item"><img alt="Beyaz Bahçe Hotel &amp; Restaurant logosu" loading="lazy" src="assets/brands/beyaz-bahce.png"/><span>Beyaz Bahçe Hotel &amp; Restaurant</span></div></div></div></section>
-<section class="contact-section" id="iletisim"><div class="container contact-inner"><p class="section-kicker reveal">Birlikte Çalışalım</p><h2 class="contact-title reveal">Bir sonraki hikâyeyi birlikte anlatalım.</h2><p class="contact-copy reveal">Oteliniz, restoranınız veya markanız için uzun süre kullanabileceğiniz sinematik içerikler üretelim.</p><a class="email-link reveal" href="mailto:aycandkerem@gmail.com">aycandkerem@gmail.com</a><div class="social-grid reveal"><div class="social-main"><span>Ana Hesap</span><h3>@aycandkerem</h3><div><a href="https://www.instagram.com/aycandkerem/" target="_blank">Instagram</a><a href="https://www.tiktok.com/@aycandkerem" target="_blank">TikTok</a></div></div><div class="social-creators"><span>Creator Partner</span><div class="creator-links"><a href="https://www.instagram.com/kkargin_/" target="_blank"><small>Kerem</small><strong>@kkargin_</strong></a><a href="https://www.instagram.com/heysirenas/" target="_blank"><small>Ayça</small><strong>@heysirenas</strong></a></div></div></div><footer class="site-footer"><p>© 2026 Ayça &amp; Kerem · Tüm hakları saklıdır.</p><a href="#hero">Yukarı Dön ↑</a></footer></div></section>
+<section class="section packages-section" id="paketler"><div class="container"><div class="section-heading-row"><div><p class="section-kicker reveal" data-i18n="packages.kicker">Çalışma Modelleri</p><h2 class="section-title reveal" data-i18n="packages.title">Markanıza uygun içerik paketini birlikte oluşturalım.</h2></div><p class="section-text compact reveal" data-i18n="packages.copy">Aşağıdaki paketler en sık tercih edilen çalışma modellerimizi temsil eder. Her iş birliği ihtiyaca göre özelleştirilebilir.</p></div><div class="packages-grid">
+<article class="package-card reveal"><p class="package-label" data-i18n="packages.starter.label">Başlangıç</p><h3>Starter</h3><p class="package-intro" data-i18n="packages.starter.intro">İlk içerik üretimi için yalın ve etkili bir başlangıç.</p><ul><li data-i18n="packages.starter.1">1 sinematik UGC video</li><li data-i18n="packages.starter.2">Mekân ve atmosfer odaklı çekim</li><li data-i18n="packages.starter.3">Marka kullanım hakları</li><li data-i18n="packages.starter.4">Sosyal medya ve web kullanımına uygun teslim</li></ul><a data-i18n="packages.quote" href="#iletisim">Teklif Al</a></article>
+<article class="package-card featured reveal"><span class="popular-badge" data-i18n="packages.popular">En Çok Tercih Edilen</span><p class="package-label" data-i18n="packages.signature.label">İçerik Arşivi</p><h3>Signature</h3><p class="package-intro" data-i18n="packages.signature.intro">Farklı hedeflere hizmet eden kapsamlı bir marka içerik arşivi.</p><ul><li data-i18n="packages.signature.1">3 sinematik UGC video</li><li data-i18n="packages.signature.2">Experience konsepti</li><li data-i18n="packages.signature.3">Lifestyle konsepti</li><li data-i18n="packages.signature.4">Product konsepti</li><li data-i18n="packages.signature.5">10 profesyonel fotoğraf</li><li data-i18n="packages.signature.6">Organik ve reklam kullanımına uygun içerikler</li></ul><a data-i18n="packages.quote" href="#iletisim">Teklif Al</a></article>
+<article class="package-card reveal"><p class="package-label" data-i18n="packages.creator.label">İçerik + Görünürlük</p><h3 data-i18n="contact.creator">Creator Partner</h3><p class="package-intro" data-i18n="packages.creator.intro">İçeriğin yanında sosyal medya görünürlüğü isteyen markalar için.</p><ul><li data-i18n="packages.creator.1">Signature paketinin tamamı</li><li data-i18n="packages.creator.2">Instagram paylaşımı</li><li data-i18n="packages.creator.3">Story desteği</li><li data-i18n="packages.creator.4">Ortak paylaşım seçeneği</li><li data-i18n="packages.creator.5">Vlog veya deneyim odaklı içerik</li></ul><a data-i18n="packages.quote" href="#iletisim">Teklif Al</a></article>
+<article class="package-card reveal"><p class="package-label" data-i18n="packages.custom.label">Size Özel</p><h3>Custom</h3><p class="package-intro" data-i18n="packages.custom.intro">Kapsamı ve teslim planı tamamen markanıza göre oluşturulur.</p><ul><li data-i18n="packages.custom.1">Lansman kampanyaları</li><li data-i18n="packages.custom.2">Çok lokasyonlu çekimler</li><li data-i18n="packages.custom.3">Otel zincirleri</li><li data-i18n="packages.custom.4">Destinasyon tanıtımları</li><li data-i18n="packages.custom.5">Uzun dönem içerik üretimi</li><li data-i18n="packages.custom.6">Size özel teslim planı</li></ul><a data-i18n="packages.plan" href="#iletisim">Birlikte Planlayalım</a></article>
+</div><p class="packages-note reveal" data-i18n="packages.note">Tüm çalışma modellerimiz markanızın ihtiyaçlarına, kullanım alanlarına ve proje kapsamına göre özelleştirilebilir.</p></div></section>
+<section class="section brands-section" id="markalar"><div class="container brands-heading"><p class="section-kicker reveal" data-i18n="brands.kicker">Referanslar</p><h2 class="section-title reveal" data-i18n="brands.title">Birlikte hikâyeler ürettiğimiz markalar.</h2><p class="section-text compact reveal" data-i18n="brands.copy">Otellerden destinasyonlara, restoranlardan global markalara uzanan iş birlikleri.</p></div><div class="logo-marquee"><div class="logo-track"><div class="brand-item"><img alt="Hilton Mauritius Resort &amp; Spa logosu" loading="lazy" src="assets/brands/hilton-mauritius.png"/><span>Hilton Mauritius Resort &amp; Spa</span></div><div class="brand-item"><img alt="Anatotour logosu" loading="lazy" src="assets/brands/anatotour.png"/><span>Anatotour</span></div><div class="brand-item"><img alt="Le Château de Bel Ombre logosu" loading="lazy" src="assets/brands/le-chateau-de-bel-ombre.png"/><span>Le Château de Bel Ombre</span></div><div class="brand-item"><img alt="Heritage Resorts logosu" loading="lazy" src="assets/brands/heritage-resorts.png"/><span>Heritage Resorts</span></div><div class="brand-item"><img alt="Mark Ryden Türkiye logosu" loading="lazy" src="assets/brands/mark-ryden-turkiye.png"/><span>Mark Ryden Türkiye</span></div><div class="brand-item"><img alt="Hotel Meandro logosu" loading="lazy" src="assets/brands/hotel-meandro.png"/><span>Hotel Meandro</span></div><div class="brand-item"><img alt="Pizzeria Rössl logosu" loading="lazy" src="assets/brands/pizzeria-roessl.png"/><span>Pizzeria Rössl</span></div><div class="brand-item"><img alt="Castel Sallegg logosu" loading="lazy" src="assets/brands/castel-sallegg.png"/><span>Castel Sallegg</span></div><div class="brand-item"><img alt="Glarros Old Town Hotel logosu" loading="lazy" src="assets/brands/glarros-old-town-hotel.png"/><span>Glarros Old Town Hotel</span></div><div class="brand-item"><img alt="Iasamani Restaurant logosu" loading="lazy" src="assets/brands/iasamani-restaurant.png"/><span>Iasamani Restaurant</span></div><div class="brand-item"><img alt="Apart.In Hotel Tbilisi logosu" loading="lazy" src="assets/brands/apart-in-hotel-tbilisi.png"/><span>Apart.In Hotel Tbilisi</span></div><div class="brand-item"><img alt="Valluga Hotel logosu" loading="lazy" src="assets/brands/valluga-hotel.png"/><span>Valluga Hotel</span></div><div class="brand-item"><img alt="Hotel Tradizio logosu" loading="lazy" src="assets/brands/hotel-tradizio.png"/><span>Hotel Tradizio</span></div><div class="brand-item"><img alt="InterContinental Istanbul logosu" loading="lazy" src="assets/brands/intercontinental-istanbul.png"/><span>InterContinental Istanbul</span></div><div class="brand-item"><img alt="Altunizade Suites Istanbul logosu" loading="lazy" src="assets/brands/altunizade-suites.png"/><span>Altunizade Suites Istanbul</span></div><div class="brand-item"><img alt="Alden Hotel Cappadocia logosu" loading="lazy" src="assets/brands/alden-hotel-cappadocia.png"/><span>Alden Hotel Cappadocia</span></div><div class="brand-item"><img alt="GetYourGuide logosu" loading="lazy" src="assets/brands/getyourguide.png"/><span>GetYourGuide</span></div><div class="brand-item"><img alt="B&amp;B HOTEL Paris logosu" loading="lazy" src="assets/brands/bb-hotel-paris.png"/><span>B&amp;B HOTEL Paris</span></div><div class="brand-item"><img alt="Canela Cave Hotel logosu" loading="lazy" src="assets/brands/canela-cave-cappadocia.png"/><span>Canela Cave Hotel</span></div><div class="brand-item"><img alt="Beyaz Bahçe Hotel &amp; Restaurant logosu" loading="lazy" src="assets/brands/beyaz-bahce.png"/><span>Beyaz Bahçe Hotel &amp; Restaurant</span></div></div></div></section>
+<section class="contact-section" id="iletisim"><div class="container contact-inner"><p class="section-kicker reveal" data-i18n="contact.kicker">Birlikte Çalışalım</p><h2 class="contact-title reveal" data-i18n="contact.title">Bir sonraki hikâyeyi birlikte anlatalım.</h2><p class="contact-copy reveal" data-i18n="contact.copy">Oteliniz, restoranınız veya markanız için uzun süre kullanabileceğiniz sinematik içerikler üretelim.</p><a class="email-link reveal" href="mailto:aycandkerem@gmail.com">aycandkerem@gmail.com</a><div class="social-grid reveal"><div class="social-main"><span data-i18n="contact.main">Ana Hesap</span><h3>@aycandkerem</h3><div><a href="https://www.instagram.com/aycandkerem/" target="_blank">Instagram</a><a href="https://www.tiktok.com/@aycandkerem" target="_blank">TikTok</a></div></div><div class="social-creators"><span data-i18n="contact.creator">Creator Partner</span><div class="creator-links"><a href="https://www.instagram.com/kkargin_/" target="_blank"><small>Kerem</small><strong>@kkargin_</strong></a><a href="https://www.instagram.com/heysirenas/" target="_blank"><small>Ayça</small><strong>@heysirenas</strong></a></div></div></div><footer class="site-footer"><p data-i18n="footer.copyright">© 2026 Ayça &amp; Kerem · Tüm hakları saklıdır.</p><a data-i18n="footer.top" href="#hero">Yukarı Dön ↑</a></footer></div></section>
 </main>
 <div class="video-modal" id="videoModal"><div class="modal-backdrop" data-close-modal=""></div><div class="modal-dialog"><button class="modal-close" data-close-modal="">×</button><video controls="" id="modalVideo" playsinline=""></video></div></div>
-<script src="script.js"></script></body></html>
+<script id="siteTranslations">window.SITE_TRANSLATIONS = {
+  "brand.name": {
+    "tr": "Ayça & Kerem",
+    "en": "Ayça & Kerem"
+  },
+  "brand.subtitle": {
+    "tr": "Yaratıcı Hikâye Anlatımı",
+    "en": "Creative Storytelling"
+  },
+  "nav.about": {
+    "tr": "Biz Kimiz?",
+    "en": "About Us"
+  },
+  "nav.portfolio": {
+    "tr": "Portfolyo",
+    "en": "Portfolio"
+  },
+  "nav.value": {
+    "tr": "Nasıl Değer Katıyoruz?",
+    "en": "How We Add Value"
+  },
+  "nav.packages": {
+    "tr": "Paketler",
+    "en": "Packages"
+  },
+  "nav.brands": {
+    "tr": "Markalar",
+    "en": "Brands"
+  },
+  "nav.contact": {
+    "tr": "İletişim",
+    "en": "Contact"
+  },
+  "hero.eyebrow": {
+    "tr": "Ayça & Kerem · Yaratıcı Stüdyo",
+    "en": "Ayça & Kerem · Creative Studio"
+  },
+  "hero.title1": {
+    "tr": "İnsanlar yalnızca bir otel rezervasyonu yapmaz.",
+    "en": "People do not simply book a hotel."
+  },
+  "hero.title2": {
+    "tr": "Kendilerini o hikâyenin içinde hayal eder.",
+    "en": "They imagine themselves inside its story."
+  },
+  "hero.copy": {
+    "tr": "Oteller, destinasyonlar, restoranlar ve yaşam tarzı markaları için hissi merkeze alan sinematik içerikler üretiyoruz.",
+    "en": "We create cinematic, emotion-led content for hotels, destinations, restaurants and lifestyle brands."
+  },
+  "hero.portfolio": {
+    "tr": "Portfolyoyu İncele",
+    "en": "Explore Our Work"
+  },
+  "hero.collab": {
+    "tr": "İş Birliği Yapalım",
+    "en": "Let’s Collaborate"
+  },
+  "about.title1": {
+    "tr": "Biz içerik üretmiyoruz.",
+    "en": "We do not simply create content."
+  },
+  "about.title2": {
+    "tr": "Deneyimleri hikâyeye dönüştürüyoruz.",
+    "en": "We turn experiences into stories."
+  },
+  "about.p1": {
+    "tr": "Her otelin, her destinasyonun ve her markanın kendine özgü bir hikâyesi olduğuna inanıyoruz. Bu yüzden yalnızca güzel görüntüler çekmiyor; insanların kendilerini o deneyimin içinde hayal edebileceği içerikler üretiyoruz.",
+    "en": "We believe every hotel, destination and brand has a story of its own. That is why we go beyond beautiful visuals and create content that allows people to imagine themselves inside the experience."
+  },
+  "about.p2": {
+    "tr": "Doğal çift dinamiğimiz, sinematik anlatımımız ve detaylara verdiğimiz önemle markaların sosyal medya, reklam ve web kanallarında uzun süre kullanabileceği güçlü bir içerik arşivi oluşturuyoruz.",
+    "en": "Through our natural couple dynamic, cinematic approach and attention to detail, we build a strong content library that brands can use across social media, advertising and web channels for the long term."
+  },
+  "stats.collabs": {
+    "tr": "Marka İş Birliği",
+    "en": "Brand Collaborations"
+  },
+  "stats.community": {
+    "tr": "Toplam Sosyal Medya Topluluğu",
+    "en": "Combined Social Community"
+  },
+  "stats.production": {
+    "tr": "UGC & Sinematik Prodüksiyon",
+    "en": "UGC & Cinematic Production"
+  },
+  "about.creative": {
+    "tr": "Yaratıcı Yönetim",
+    "en": "Creative Direction"
+  },
+  "about.production": {
+    "tr": "Prodüksiyon",
+    "en": "Production"
+  },
+  "about.storytelling": {
+    "tr": "Hikâye Anlatımı",
+    "en": "Storytelling"
+  },
+  "portfolio.title": {
+    "tr": "Farklı perspektiflerden kısa bir seçki.",
+    "en": "A curated selection from different perspectives."
+  },
+  "portfolio.copy": {
+    "tr": "Otellerden restoranlara, destinasyonlardan ürün odaklı UGC içeriklerine kadar farklı çalışma alanlarımızı tek bakışta keşfedin.",
+    "en": "Explore our work across hotels, restaurants, destinations and product-led UGC in one curated collection."
+  },
+  "filters.all": {
+    "tr": "Tümü",
+    "en": "All"
+  },
+  "filters.hotels": {
+    "tr": "Oteller",
+    "en": "Hotels"
+  },
+  "filters.restaurants": {
+    "tr": "Restoranlar",
+    "en": "Restaurants"
+  },
+  "filters.destinations": {
+    "tr": "Destinasyonlar",
+    "en": "Destinations"
+  },
+  "portfolio.watch": {
+    "tr": "İzle",
+    "en": "Watch"
+  },
+  "project.1": {
+    "tr": "Otel Hikâye Anlatımı",
+    "en": "Hotel Storytelling"
+  },
+  "project.2": {
+    "tr": "Tropikal Adada Bir Günümüz",
+    "en": "A Day on a Tropical Island"
+  },
+  "project.3": {
+    "tr": "Restoran UGC",
+    "en": "Restaurant UGC"
+  },
+  "project.4": {
+    "tr": "Romantik Bir Akşam Yemeği",
+    "en": "A Romantic Dinner"
+  },
+  "project.5": {
+    "tr": "Bir Hafta Sonu Kaçamağı",
+    "en": "A Weekend Escape"
+  },
+  "project.6": {
+    "tr": "İmza Akşam Yemeği Deneyimi",
+    "en": "Signature Dining Experience"
+  },
+  "project.7": {
+    "tr": "Ürün Odaklı UGC",
+    "en": "Product-Focused UGC"
+  },
+  "project.8": {
+    "tr": "Yeme & İçme İçeriği",
+    "en": "Food & Beverage Content"
+  },
+  "project.9": {
+    "tr": "Doğal Deneyim Anlatımı",
+    "en": "Natural Experience Storytelling"
+  },
+  "value.kicker": {
+    "tr": "Markalara Nasıl Değer Katıyoruz?",
+    "en": "How We Add Value to Brands"
+  },
+  "value.title1": {
+    "tr": "Yalnızca içerik değil,",
+    "en": "More than content,"
+  },
+  "value.title2": {
+    "tr": "kullanılabilir bir marka varlığı üretiyoruz.",
+    "en": "we create a lasting brand asset."
+  },
+  "value.1.title": {
+    "tr": "Hikâye Anlatımı Odaklı Videolar",
+    "en": "Story-Driven Video"
+  },
+  "value.1.copy": {
+    "tr": "Markanızın atmosferini yalnızca göstermek değil, izleyiciye hissettirmek için üretiyoruz.",
+    "en": "We create content that does more than show your atmosphere—it makes the audience feel it."
+  },
+  "value.1.tag": {
+    "tr": "Reels · TikTok · Web",
+    "en": "Reels · TikTok · Web"
+  },
+  "value.2.title": {
+    "tr": "Doğal ve Güven Veren UGC",
+    "en": "Natural, Trust-Building UGC"
+  },
+  "value.2.copy": {
+    "tr": "Kendi hesaplarınızda ve reklam kampanyalarınızda kullanabileceğiniz samimi içerikler hazırlıyoruz.",
+    "en": "We produce authentic content for your own channels and advertising campaigns."
+  },
+  "value.2.tag": {
+    "tr": "Organik · Reklam · Kampanya",
+    "en": "Organic · Ads · Campaigns"
+  },
+  "value.3.title": {
+    "tr": "Profesyonel Fotoğraf Arşivi",
+    "en": "Professional Photo Library"
+  },
+  "value.3.copy": {
+    "tr": "Sosyal medya, web sitesi ve rezervasyon platformları için uzun süre kullanılabilecek görseller üretiyoruz.",
+    "en": "We create long-lasting visuals for social media, websites and booking platforms."
+  },
+  "value.3.tag": {
+    "tr": "Sosyal Medya · Web · Rezervasyon",
+    "en": "Social Media · Web · Booking"
+  },
+  "value.4.title": {
+    "tr": "Uzun Vadeli İçerik Partnerliği",
+    "en": "Long-Term Content Partnership"
+  },
+  "value.4.copy": {
+    "tr": "Tek seferlik bir paylaşım yerine markanızın farklı iletişim ihtiyaçlarına cevap veren sürdürülebilir üretim sağlıyoruz.",
+    "en": "Instead of a one-off post, we provide sustainable production that supports your brand’s evolving communication needs."
+  },
+  "value.4.tag": {
+    "tr": "Planlama · Prodüksiyon · Teslim",
+    "en": "Planning · Production · Delivery"
+  },
+  "packages.kicker": {
+    "tr": "Çalışma Modelleri",
+    "en": "Ways to Work Together"
+  },
+  "packages.title": {
+    "tr": "Markanıza uygun içerik paketini birlikte oluşturalım.",
+    "en": "Let’s build the right content package for your brand."
+  },
+  "packages.copy": {
+    "tr": "Aşağıdaki paketler en sık tercih edilen çalışma modellerimizi temsil eder. Her iş birliği ihtiyaca göre özelleştirilebilir.",
+    "en": "These packages represent our most requested collaboration models. Every partnership can be tailored to your needs."
+  },
+  "packages.starter.label": {
+    "tr": "Başlangıç",
+    "en": "Starting Point"
+  },
+  "packages.starter.intro": {
+    "tr": "İlk içerik üretimi için yalın ve etkili bir başlangıç.",
+    "en": "A focused and effective starting point for your first content production."
+  },
+  "packages.starter.1": {
+    "tr": "1 sinematik UGC video",
+    "en": "1 cinematic UGC video"
+  },
+  "packages.starter.2": {
+    "tr": "Mekân ve atmosfer odaklı çekim",
+    "en": "Location and atmosphere-focused shoot"
+  },
+  "packages.starter.3": {
+    "tr": "Marka kullanım hakları",
+    "en": "Brand usage rights"
+  },
+  "packages.starter.4": {
+    "tr": "Sosyal medya ve web kullanımına uygun teslim",
+    "en": "Delivered for social media and web use"
+  },
+  "packages.quote": {
+    "tr": "Teklif Al",
+    "en": "Request a Proposal"
+  },
+  "packages.popular": {
+    "tr": "En Çok Tercih Edilen",
+    "en": "Most Popular"
+  },
+  "packages.signature.label": {
+    "tr": "İçerik Arşivi",
+    "en": "Content Library"
+  },
+  "packages.signature.intro": {
+    "tr": "Farklı hedeflere hizmet eden kapsamlı bir marka içerik arşivi.",
+    "en": "A comprehensive brand content library designed for multiple objectives."
+  },
+  "packages.signature.1": {
+    "tr": "3 sinematik UGC video",
+    "en": "3 cinematic UGC videos"
+  },
+  "packages.signature.2": {
+    "tr": "Experience konsepti",
+    "en": "Experience concept"
+  },
+  "packages.signature.3": {
+    "tr": "Lifestyle konsepti",
+    "en": "Lifestyle concept"
+  },
+  "packages.signature.4": {
+    "tr": "Product konsepti",
+    "en": "Product concept"
+  },
+  "packages.signature.5": {
+    "tr": "10 profesyonel fotoğraf",
+    "en": "10 professional photographs"
+  },
+  "packages.signature.6": {
+    "tr": "Organik ve reklam kullanımına uygun içerikler",
+    "en": "Content suitable for organic and paid use"
+  },
+  "packages.creator.label": {
+    "tr": "İçerik + Görünürlük",
+    "en": "Content + Visibility"
+  },
+  "contact.creator": {
+    "tr": "Creator Partner",
+    "en": "Creator Partners"
+  },
+  "packages.creator.intro": {
+    "tr": "İçeriğin yanında sosyal medya görünürlüğü isteyen markalar için.",
+    "en": "For brands seeking social media visibility alongside content production."
+  },
+  "packages.creator.1": {
+    "tr": "Signature paketinin tamamı",
+    "en": "Everything included in Signature"
+  },
+  "packages.creator.2": {
+    "tr": "Instagram paylaşımı",
+    "en": "Instagram post"
+  },
+  "packages.creator.3": {
+    "tr": "Story desteği",
+    "en": "Story support"
+  },
+  "packages.creator.4": {
+    "tr": "Ortak paylaşım seçeneği",
+    "en": "Collaborative post option"
+  },
+  "packages.creator.5": {
+    "tr": "Vlog veya deneyim odaklı içerik",
+    "en": "Vlog or experience-led content"
+  },
+  "packages.custom.label": {
+    "tr": "Size Özel",
+    "en": "Tailored to You"
+  },
+  "packages.custom.intro": {
+    "tr": "Kapsamı ve teslim planı tamamen markanıza göre oluşturulur.",
+    "en": "The scope and delivery plan are built entirely around your brand."
+  },
+  "packages.custom.1": {
+    "tr": "Lansman kampanyaları",
+    "en": "Launch campaigns"
+  },
+  "packages.custom.2": {
+    "tr": "Çok lokasyonlu çekimler",
+    "en": "Multi-location shoots"
+  },
+  "packages.custom.3": {
+    "tr": "Otel zincirleri",
+    "en": "Hotel groups"
+  },
+  "packages.custom.4": {
+    "tr": "Destinasyon tanıtımları",
+    "en": "Destination campaigns"
+  },
+  "packages.custom.5": {
+    "tr": "Uzun dönem içerik üretimi",
+    "en": "Long-term content production"
+  },
+  "packages.custom.6": {
+    "tr": "Size özel teslim planı",
+    "en": "Tailored delivery plan"
+  },
+  "packages.plan": {
+    "tr": "Birlikte Planlayalım",
+    "en": "Let’s Plan Together"
+  },
+  "packages.note": {
+    "tr": "Tüm çalışma modellerimiz markanızın ihtiyaçlarına, kullanım alanlarına ve proje kapsamına göre özelleştirilebilir.",
+    "en": "All collaboration models can be tailored to your brand’s needs, usage channels and project scope."
+  },
+  "brands.kicker": {
+    "tr": "Referanslar",
+    "en": "Selected Partners"
+  },
+  "brands.title": {
+    "tr": "Birlikte hikâyeler ürettiğimiz markalar.",
+    "en": "Brands we have created stories with."
+  },
+  "brands.copy": {
+    "tr": "Otellerden destinasyonlara, restoranlardan global markalara uzanan iş birlikleri.",
+    "en": "Collaborations spanning hotels, destinations, restaurants and global brands."
+  },
+  "contact.kicker": {
+    "tr": "Birlikte Çalışalım",
+    "en": "Let’s Work Together"
+  },
+  "contact.title": {
+    "tr": "Bir sonraki hikâyeyi birlikte anlatalım.",
+    "en": "Let’s tell the next story together."
+  },
+  "contact.copy": {
+    "tr": "Oteliniz, restoranınız veya markanız için uzun süre kullanabileceğiniz sinematik içerikler üretelim.",
+    "en": "Let’s create cinematic content your hotel, restaurant or brand can use for the long term."
+  },
+  "contact.main": {
+    "tr": "Ana Hesap",
+    "en": "Main Account"
+  },
+  "footer.copyright": {
+    "tr": "© 2026 Ayça & Kerem · Tüm hakları saklıdır.",
+    "en": "© 2026 Ayça & Kerem · All rights reserved."
+  },
+  "footer.top": {
+    "tr": "Yukarı Dön ↑",
+    "en": "Back to Top ↑"
+  },
+  "meta.title": {
+    "tr": "Ayça & Kerem | Yaratıcı Hikâye Anlatımı",
+    "en": "Ayça & Kerem | Creative Storytelling Studio"
+  },
+  "meta.description": {
+    "tr": "Ayça & Kerem — Oteller, destinasyonlar, restoranlar ve yaşam tarzı markaları için sinematik UGC ve yaratıcı hikâye anlatımı.",
+    "en": "Ayça & Kerem create cinematic UGC and story-led content for hotels, destinations, restaurants and lifestyle brands."
+  },
+  "aria.menu": {
+    "tr": "Menüyü aç",
+    "en": "Open menu"
+  },
+  "aria.video.1": {
+    "tr": "Hilton Mauritius videosunu aç",
+    "en": "Open the Hilton Mauritius video"
+  },
+  "aria.video.2": {
+    "tr": "Heritage Resorts videosunu aç",
+    "en": "Open the Heritage Resorts video"
+  },
+  "aria.video.3": {
+    "tr": "Iasamani Restaurant videosunu aç",
+    "en": "Open the Iasamani Restaurant video"
+  },
+  "aria.video.4": {
+    "tr": "Le Château de Bel Ombre videosunu aç",
+    "en": "Open the Le Château de Bel Ombre video"
+  },
+  "aria.video.5": {
+    "tr": "Anba Soley Airbnb videosunu aç",
+    "en": "Open the Anba Soley Airbnb video"
+  },
+  "aria.video.6": {
+    "tr": "Heritage Resorts videosunu aç",
+    "en": "Open the Heritage Resorts video"
+  },
+  "aria.video.7": {
+    "tr": "Mark Ryden videosunu aç",
+    "en": "Open the Mark Ryden video"
+  },
+  "aria.video.8": {
+    "tr": "Pizzeria Rössl videosunu aç",
+    "en": "Open the Pizzeria Rössl video"
+  },
+  "aria.video.9": {
+    "tr": "Couple Lifestyle videosunu aç",
+    "en": "Open the Couple Lifestyle video"
+  }
+};</script><script src="script.js"></script></body></html>
