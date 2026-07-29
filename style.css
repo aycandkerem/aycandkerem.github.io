@@ -1680,11 +1680,11 @@ html[lang="en"] .english-only {
 /* Phones in landscape: modern devices can be wider than the mobile breakpoint */
 @media (orientation: landscape) and (max-height: 600px) and (max-width: 1000px) {
   html {
-    font-size: 81.25%;
+    font-size: 75%;
   }
 
   .container {
-    width: min(calc(100% - 72px),var(--max));
+    width: min(calc(100% - 88px),var(--max));
   }
 
   .site-header,
@@ -1870,28 +1870,115 @@ html[lang="en"] .english-only {
   }
 
   .section {
-    padding: 68px 0;
+    padding: 54px 0;
   }
 
   .section-title {
-    font-size: clamp(1.75rem, 4.2vw, 2.5rem);
+    font-size: clamp(1.65rem, 3.6vw, 2.25rem);
   }
 
   .section-heading-row {
-    gap: 28px;
-    margin-bottom: 38px;
+    gap: 24px;
+    margin-bottom: 30px;
+  }
+
+  .section-kicker,
+  .eyebrow {
+    margin-bottom: 10px;
+    font-size: 10px;
+  }
+
+  .section-text,
+  .section-text.compact {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .stats-grid {
+    margin-top: 28px;
+  }
+
+  .stat-card {
+    padding: 16px;
+  }
+
+  .stat-card strong {
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+
+  .value-list {
+    margin-top: 38px;
+  }
+
+  .value-row {
+    grid-template-columns: 44px 1fr auto;
+    gap: 20px;
+    padding: 22px 0;
+  }
+
+  .value-row h3 {
+    font-size: 22px;
+  }
+
+  .value-row p,
+  .value-tag {
+    font-size: 12px;
+  }
+
+  .package-card {
+    min-height: auto;
+    padding: 21px;
+  }
+
+  .package-card h3 {
+    margin-top: 14px;
+    font-size: 26px;
+  }
+
+  .package-intro,
+  .package-card li {
+    font-size: 12px;
+  }
+
+  .package-card ul {
+    gap: 9px;
+  }
+
+  .package-terms article,
+  .creator-reference {
+    padding: 18px;
+  }
+
+  .brand-item {
+    flex-basis: 170px;
+    min-height: 100px;
+  }
+
+  .brand-item img {
+    height: 42px;
   }
 
   .contact-section {
-    padding-top: 80px;
+    padding-top: 64px;
   }
 
   .contact-title {
-    font-size: clamp(1.85rem,4.2vw,2.65rem);
+    font-size: clamp(1.75rem,3.7vw,2.4rem);
+  }
+
+  .contact-copy {
+    margin-block: 18px;
+    font-size: 13px;
+  }
+
+  .social-grid {
+    margin-top: 50px;
   }
 
   .social-main h3 {
-    font-size: 2.45rem;
+    margin-block: 20px;
+    font-size: 30px;
   }
 
   .modal-dialog video {
