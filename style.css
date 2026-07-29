@@ -1679,6 +1679,14 @@ html[lang="en"] .english-only {
 
 /* Phones in landscape: modern devices can be wider than the mobile breakpoint */
 @media (orientation: landscape) and (max-height: 600px) and (max-width: 1000px) {
+  html {
+    font-size: 87.5%;
+  }
+
+  .container {
+    width: min(calc(100% - 56px),var(--max));
+  }
+
   .site-header,
   .site-header.scrolled {
     position: fixed;
@@ -1820,8 +1828,8 @@ html[lang="en"] .english-only {
   }
 
   .hero h1 {
-    max-width: 720px;
-    font-size: clamp(2.15rem, 7.4vw, 3.8rem);
+    max-width: 680px;
+    font-size: clamp(1.9rem, 5.3vw, 2.9rem);
     line-height: .94;
   }
 
@@ -1852,7 +1860,7 @@ html[lang="en"] .english-only {
   }
 
   .section-title {
-    font-size: clamp(2.2rem, 6.5vw, 3.9rem);
+    font-size: clamp(1.85rem, 4.7vw, 2.8rem);
   }
 
   .section-heading-row {
@@ -1862,6 +1870,14 @@ html[lang="en"] .english-only {
 
   .contact-section {
     padding-top: 80px;
+  }
+
+  .contact-title {
+    font-size: clamp(2rem,4.8vw,3rem);
+  }
+
+  .social-main h3 {
+    font-size: 2.7rem;
   }
 
   .modal-dialog video {
