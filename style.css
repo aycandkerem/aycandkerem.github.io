@@ -1680,11 +1680,11 @@ html[lang="en"] .english-only {
 /* Phones in landscape: modern devices can be wider than the mobile breakpoint */
 @media (orientation: landscape) and (max-height: 600px) and (max-width: 1000px) {
   html {
-    font-size: 87.5%;
+    font-size: 81.25%;
   }
 
   .container {
-    width: min(calc(100% - 56px),var(--max));
+    width: min(calc(100% - 72px),var(--max));
   }
 
   .site-header,
@@ -1700,7 +1700,15 @@ html[lang="en"] .english-only {
   }
 
   .brand-sub {
-    font-size: .58rem;
+    font-size: 10px;
+  }
+
+  .brand-main {
+    font-size: 16px;
+  }
+
+  .language-button {
+    font-size: 11px;
   }
 
   .site-header .language-switch {
@@ -1802,9 +1810,15 @@ html[lang="en"] .english-only {
     width: auto;
     padding: 3px 0;
     color: #fff;
-    font: 600 1.15rem/1.1 Manrope, sans-serif;
+    font: 600 18px/1.1 Manrope, sans-serif;
     letter-spacing: -.025em;
     text-align: center;
+  }
+
+  .main-nav .nav-cta {
+    min-width: 132px;
+    padding: 11px 24px !important;
+    font-size: 18px !important;
   }
 
   body.menu-open {
@@ -1829,7 +1843,7 @@ html[lang="en"] .english-only {
 
   .hero h1 {
     max-width: 680px;
-    font-size: clamp(1.9rem, 5.3vw, 2.9rem);
+    font-size: clamp(1.8rem, 4.7vw, 2.6rem);
     line-height: .94;
   }
 
@@ -1860,7 +1874,7 @@ html[lang="en"] .english-only {
   }
 
   .section-title {
-    font-size: clamp(1.85rem, 4.7vw, 2.8rem);
+    font-size: clamp(1.75rem, 4.2vw, 2.5rem);
   }
 
   .section-heading-row {
@@ -1873,11 +1887,11 @@ html[lang="en"] .english-only {
   }
 
   .contact-title {
-    font-size: clamp(2rem,4.8vw,3rem);
+    font-size: clamp(1.85rem,4.2vw,2.65rem);
   }
 
   .social-main h3 {
-    font-size: 2.7rem;
+    font-size: 2.45rem;
   }
 
   .modal-dialog video {
