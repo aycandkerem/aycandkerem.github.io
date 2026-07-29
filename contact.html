@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=20260728-2">
-<link rel="stylesheet" href="pages.css?v=20260728-2">
+<link rel="stylesheet" href="pages.css?v=20260729-1">
 </head>
 <body class="subpage">
 
@@ -35,18 +35,18 @@
 <section class="contact-v2-section" data-header-theme="light"><div class="container contact-page-grid">
 <aside class="contact-direct">
   <p class="section-kicker" data-tr="Doğrudan İletişim" data-en="Direct Contact">Doğrudan İletişim</p>
-  <a href="mailto:aycandkerem@gmail.com">aycandkerem<br>@gmail.com</a>
+  <a class="contact-email" href="mailto:aycandkerem@gmail.com">aycandkerem@gmail.com</a>
   <a class="contact-social" href="https://instagram.com/aycandkerem" target="_blank" rel="noopener"><small>Instagram</small><strong>@aycandkerem ↗</strong></a>
   <div class="contact-fit"><span data-tr="En uygun projeler" data-en="Best suited for">En uygun projeler</span><p data-tr="Oteller · Destinasyonlar · Restoranlar · Turizm ve yaşam tarzı markaları" data-en="Hotels · Destinations · Restaurants · Travel and lifestyle brands">Oteller · Destinasyonlar · Restoranlar · Turizm ve yaşam tarzı markaları</p></div>
 </aside>
 <div class="contact-form-card">
-  <div class="contact-form-heading"><span>Project Brief</span><h2 data-tr="Projenizi bize anlatın." data-en="Tell us about your project.">Projenizi bize anlatın.</h2><p data-tr="Bildiğiniz detayları paylaşmanız yeterli; kalan kapsamı birlikte netleştiririz." data-en="Share whatever details you have; we can define the rest together.">Bildiğiniz detayları paylaşmanız yeterli; kalan kapsamı birlikte netleştiririz.</p></div>
+  <div class="contact-form-heading"><span data-tr="Proje Özeti" data-en="Project Brief">Proje Özeti</span><h2 data-tr="Projenizi bize anlatın." data-en="Tell us about your project.">Projenizi bize anlatın.</h2><p data-tr="Bildiğiniz detayları paylaşmanız yeterli; kalan kapsamı birlikte netleştiririz." data-en="Share whatever details you have; we can define the rest together.">Bildiğiniz detayları paylaşmanız yeterli; kalan kapsamı birlikte netleştiririz.</p></div>
   <form class="inquiry-form" id="inquiryForm">
-    <label><span data-tr="Adınız / Marka" data-en="Name / Brand">Adınız / Marka</span><input name="name" autocomplete="organization" required></label>
-    <label><span data-tr="E-posta" data-en="Email">E-posta</span><input type="email" name="email" autocomplete="email" required></label>
+    <label><span data-tr="Adınız / Marka" data-en="Name / Brand">Adınız / Marka</span><input name="name" autocomplete="organization" maxlength="100" required></label>
+    <label><span data-tr="E-posta" data-en="Email">E-posta</span><input type="email" name="email" autocomplete="email" inputmode="email" maxlength="254" required></label>
     <label><span data-tr="Proje Türü" data-en="Project Type">Proje Türü</span><select name="project"><option data-tr="Otel / Resort" data-en="Hotel / Resort">Otel / Resort</option><option data-tr="Destinasyon" data-en="Destination">Destinasyon</option><option data-tr="Restoran" data-en="Restaurant">Restoran</option><option data-tr="Ürün / Lifestyle" data-en="Product / Lifestyle">Ürün / Lifestyle</option><option data-tr="Diğer" data-en="Other">Diğer</option></select></label>
-    <label><span data-tr="Destinasyon & Tarih" data-en="Destination & Dates">Destinasyon & Tarih</span><input name="destination" data-tr-placeholder="Mauritius · Ekim 2026" data-en-placeholder="Mauritius · October 2026" placeholder="Mauritius · Ekim 2026"></label>
-    <label class="full"><span data-tr="Hedefiniz ve ihtiyaç duyduğunuz içerikler" data-en="Your goals and content needs">Hedefiniz ve ihtiyaç duyduğunuz içerikler</span><textarea name="message" rows="6" required></textarea></label>
+    <label><span data-tr="Destinasyon & Tarih" data-en="Destination & Dates">Destinasyon & Tarih</span><input name="destination" maxlength="150" data-tr-placeholder="Mauritius · Ekim 2026" data-en-placeholder="Mauritius · October 2026" placeholder="Mauritius · Ekim 2026"></label>
+    <label class="full message-field"><span data-tr="Hedefiniz ve ihtiyaç duyduğunuz içerikler" data-en="Your goals and content needs">Hedefiniz ve ihtiyaç duyduğunuz içerikler</span><textarea name="message" rows="6" maxlength="1000" required></textarea><small class="character-count" aria-live="polite"><span id="messageCount">0</span>/1000</small></label>
     <button class="button button-dark full" type="submit" data-tr="E-posta Taslağını Oluştur →" data-en="Create Email Draft →">E-posta Taslağını Oluştur →</button>
     <p class="contact-form-note full" data-tr="Gönder butonu, verdiğiniz bilgilerle hazır bir e-posta taslağı açar." data-en="The button opens a ready-to-send email draft using the details you provide.">Gönder butonu, verdiğiniz bilgilerle hazır bir e-posta taslağı açar.</p>
   </form>
@@ -61,7 +61,7 @@
     <p>© 2026 Ayça &amp; Kerem</p>
   </div>
 </footer>
-<script src="page-script.js?v=20260728-2"></script>
+<script src="page-script.js?v=20260729-1"></script>
 
 
 </body>
