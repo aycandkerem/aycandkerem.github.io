@@ -96,16 +96,88 @@
   addEventListener('keydown', event => { if (event.key === 'Escape') closeModal(); });
 
   const inquiryForm = document.getElementById('inquiryForm');
+  const inquiryEmail = inquiryForm?.elements.email;
+  const inquiryMessage = inquiryForm?.elements.message;
+  const messageCount = document.getElementById('messageCount');
+  const updateMessageCount = () => {
+    if (messageCount && inquiryMessage) messageCount.textContent = String(inquiryMessage.value.length);
+  };
+  inquiryMessage?.addEventListener('input', updateMessageCount);
+  updateMessageCount();
+
+  const emailDomainCorrections = {
+    'gamil.com': 'gmail.com',
+    'gmial.com': 'gmail.com',
+    'gmail.co': 'gmail.com',
+    'gmail.con': 'gmail.com',
+    'outlok.com': 'outlook.com',
+    'outllok.com': 'outlook.com',
+    'outlook.co': 'outlook.com',
+    'hotmail.co': 'hotmail.com',
+    'hotmai.com': 'hotmail.com',
+    'icloud.co': 'icloud.com',
+    'yahoo.co': 'yahoo.com'
+  };
+  const commonEmailDomains = ['gmail.com', 'outlook.com', 'hotmail.com', 'icloud.com', 'yahoo.com'];
+  const editDistance = (left, right) => {
+    const row = Array.from({ length: right.length + 1 }, (_, index) => index);
+    for (let leftIndex = 1; leftIndex <= left.length; leftIndex += 1) {
+      let diagonal = row[0];
+      row[0] = leftIndex;
+      for (let rightIndex = 1; rightIndex <= right.length; rightIndex += 1) {
+        const previous = row[rightIndex];
+        row[rightIndex] = Math.min(
+          row[rightIndex] + 1,
+          row[rightIndex - 1] + 1,
+          diagonal + (left[leftIndex - 1] === right[rightIndex - 1] ? 0 : 1)
+        );
+        diagonal = previous;
+      }
+    }
+    return row[right.length];
+  };
+  const validateEmail = () => {
+    if (!inquiryEmail) return true;
+    const current = lang();
+    const value = inquiryEmail.value.trim().toLowerCase();
+    inquiryEmail.value = value;
+    inquiryEmail.setCustomValidity('');
+    const match = value.match(/^([^\s@]+)@([^\s@]+\.[a-z]{2,})$/i);
+    if (!match) {
+      inquiryEmail.setCustomValidity(current === 'en'
+        ? 'Please enter a valid email address.'
+        : 'Lütfen geçerli bir e-posta adresi girin.');
+      return false;
+    }
+    const domain = match[2];
+    const suggestion = emailDomainCorrections[domain]
+      || commonEmailDomains.find(candidate => candidate !== domain && editDistance(domain, candidate) <= 1);
+    if (suggestion) {
+      inquiryEmail.setCustomValidity(current === 'en'
+        ? `Did you mean ${match[1]}@${suggestion}?`
+        : `${match[1]}@${suggestion} adresini mi demek istediniz?`);
+      return false;
+    }
+    return true;
+  };
+  inquiryEmail?.addEventListener('input', () => inquiryEmail.setCustomValidity(''));
+  inquiryEmail?.addEventListener('blur', validateEmail);
+
   inquiryForm?.addEventListener('submit', event => {
     event.preventDefault();
+    validateEmail();
+    if (!inquiryForm.checkValidity()) {
+      inquiryForm.reportValidity();
+      return;
+    }
     const data = new FormData(inquiryForm);
     const current = lang();
     const subject = current === 'en'
-      ? `Project Inquiry — ${data.get('name')}`
-      : `Proje Talebi — ${data.get('name')}`;
+      ? `Collaboration Inquiry | ${data.get('project')} | ${data.get('name')}`
+      : `İş Birliği Talebi | ${data.get('project')} | ${data.get('name')}`;
     const body = current === 'en'
-      ? `Name / Brand: ${data.get('name')}\nEmail: ${data.get('email')}\nProject Type: ${data.get('project')}\nDestination & Dates: ${data.get('destination') || '-'}\n\nProject Details:\n${data.get('message')}`
-      : `Ad / Marka: ${data.get('name')}\nE-posta: ${data.get('email')}\nProje Türü: ${data.get('project')}\nDestinasyon & Tarih: ${data.get('destination') || '-'}\n\nProje Detayları:\n${data.get('message')}`;
+      ? `Hello Ayça & Kerem,\n\nI am reaching out on behalf of ${data.get('name')} to explore a potential collaboration.\n\nProject type: ${data.get('project')}\nDestination & dates: ${data.get('destination') || 'To be confirmed'}\nContact email: ${data.get('email')}\n\nOur goals and content needs:\n${data.get('message')}\n\nWe would be happy to hear your creative approach, recommended deliverables and collaboration terms.\n\nBest regards,\n${data.get('name')}`
+      : `Merhaba Ayça & Kerem,\n\n${data.get('name')} adına olası bir iş birliği için sizinle iletişime geçiyorum.\n\nProje türü: ${data.get('project')}\nDestinasyon & tarih: ${data.get('destination') || 'Henüz netleşmedi'}\nİletişim e-postası: ${data.get('email')}\n\nProje hedefimiz ve ihtiyaç duyduğumuz içerikler:\n${data.get('message')}\n\nYaratıcı yaklaşımınız, önerdiğiniz teslim kapsamı ve çalışma koşulları hakkında bilgi paylaşabilirseniz memnun oluruz.\n\nTeşekkürler,\n${data.get('name')}`;
     location.href = `mailto:aycandkerem@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 
