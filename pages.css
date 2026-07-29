@@ -591,7 +591,7 @@
 
   .portfolio-intro {
     min-height: auto;
-    padding: 78px 0 38px;
+    padding: 72px 0 30px;
   }
 
   .portfolio-intro-grid {
@@ -604,12 +604,12 @@
   }
 
   .portfolio-intro-copy h1 {
-    font-size: clamp(1.75rem, 4.2vw, 2.4rem);
+    font-size: clamp(1.65rem, 3.7vw, 2.15rem);
   }
 
   .portfolio-intro-text {
     margin-top: 18px;
-    font-size: .88rem;
+    font-size: 12px;
     line-height: 1.5;
   }
 
@@ -637,11 +637,11 @@
 
   .about-editorial-copy h1 {
     margin: 8px 0 16px;
-    font-size: clamp(1.7rem, 3.9vw, 2.3rem);
+    font-size: clamp(1.6rem, 3.5vw, 2.05rem);
   }
 
   .about-editorial-copy > p:not(.section-kicker) {
-    font-size: .86rem;
+    font-size: 12px;
     line-height: 1.48;
   }
 
@@ -652,7 +652,7 @@
 
   .about-hero-photo {
     justify-self: end;
-    width: min(100%,220px);
+    width: min(100%,200px);
     border-radius: 22px;
   }
 
@@ -661,7 +661,7 @@
   .about-gallery-section,
   .about-process-v2,
   .about-proof-section {
-    padding: 62px 0;
+    padding: 50px 0;
   }
 
   .about-role-grid {
@@ -669,8 +669,8 @@
   }
 
   .about-role-grid article {
-    min-height: 205px;
-    padding: 24px;
+    min-height: 180px;
+    padding: 20px;
   }
 
   .about-manifesto h2,
@@ -678,22 +678,22 @@
   .about-gallery-heading h2,
   .about-process-intro h2,
   .about-proof-copy h2 {
-    font-size: clamp(1.7rem,3.8vw,2.35rem);
+    font-size: clamp(1.6rem,3.35vw,2.05rem);
   }
 
   .about-role-grid h3 {
-    margin-top: 34px;
-    font-size: clamp(1.25rem,2.8vw,1.8rem);
+    margin-top: 26px;
+    font-size: clamp(1.2rem,2.4vw,1.55rem);
   }
 
   .about-process-list article {
     grid-template-columns: 44px .72fr 1.28fr;
     gap: 18px;
-    padding: 22px 0;
+    padding: 18px 0;
   }
 
   .contact-v2-hero {
-    padding: 82px 0 34px;
+    padding: 72px 0 28px;
   }
 
   .contact-v2-hero-grid {
@@ -702,11 +702,11 @@
   }
 
   .contact-v2-hero h1 {
-    font-size: clamp(1.75rem, 4vw, 2.4rem);
+    font-size: clamp(1.65rem, 3.5vw, 2.1rem);
   }
 
   .contact-v2-intro p {
-    font-size: .88rem;
+    font-size: 12px;
     line-height: 1.5;
   }
 
@@ -716,7 +716,7 @@
   }
 
   .contact-v2-section {
-    padding: 28px 0 68px;
+    padding: 22px 0 54px;
   }
 
   .contact-page-grid {
@@ -734,11 +734,31 @@
   }
 
   .contact-form-card {
-    padding: 30px;
+    padding: 24px;
   }
 
   .contact-form-heading h2 {
-    font-size: clamp(1.6rem,3.1vw,2.1rem);
+    font-size: clamp(1.5rem,2.8vw,1.9rem);
+  }
+
+  .contact-form-heading p,
+  .contact-fit p,
+  .about-manifesto-grid > div > p,
+  .about-role-grid p,
+  .about-process-list p,
+  .about-proof-copy > p:not(.section-kicker) {
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .inquiry-form {
+    gap: 14px;
+  }
+
+  .inquiry-form input,
+  .inquiry-form select,
+  .inquiry-form textarea {
+    padding: 12px;
   }
 }
 
