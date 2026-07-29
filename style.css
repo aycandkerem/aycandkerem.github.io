@@ -1550,6 +1550,14 @@ body.language-popup-open {
   min-height: 610px;
 }
 
+.english-only {
+  display: none;
+}
+
+html[lang="en"] .english-only {
+  display: block;
+}
+
 .packages-grid-three .featured .popular-badge {
   top: -14px;
   right: 24px;
