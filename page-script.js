@@ -22,6 +22,19 @@
   }));
   applyLanguage();
 
+  const plannedVideos = (window.PLANNED_VIDEO_DATA || []).filter(item => item.available);
+  const videoGrid = document.querySelector('.portfolio-phone-grid');
+  if (videoGrid && plannedVideos.length) {
+    const current = lang();
+    plannedVideos.forEach(item => {
+      const article = document.createElement('article');
+      article.className = 'portfolio-item';
+      article.dataset.category = item.category;
+      article.innerHTML = `<div class="phone-shell"><div class="phone-speaker"></div><video class="portfolio-video" muted loop playsinline preload="metadata"${item.poster ? ` poster="${item.poster}"` : ''} src="${item.video}"></video><button class="video-open case-play-large" data-video="${item.video}" aria-label="Open ${item.title} video"><span>${current === 'en' ? 'Watch' : 'İzle'}</span></button></div><div class="project-meta"><h3>${item.title}</h3><p>${current === 'en' ? item.subtitle_en : item.subtitle_tr}</p></div>`;
+      videoGrid.appendChild(article);
+    });
+  }
+
   const header = document.getElementById('siteHeader');
   const toggle = document.getElementById('menuToggle');
   const nav = document.getElementById('mainNav');
