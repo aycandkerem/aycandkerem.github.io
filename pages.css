@@ -543,7 +543,7 @@
 }
 @media(max-width:620px){
   .country-detail-panel{padding:18px 14px}
-  .country-detail-top{grid-template-columns:minmax(0,1fr) 92px;gap:8px;margin:38px 0 12px}
+  .country-detail-top{grid-template-columns:minmax(0,1fr) 92px;gap:8px;margin:62px 0 12px}
   .country-panel-heading{gap:9px;padding:12px}
   .country-panel-heading h2{font-size:1.35rem}
   .country-panel-heading .panel-kicker{font-size:.58rem}
