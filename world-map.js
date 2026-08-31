@@ -7,7 +7,8 @@
   const lang = () => localStorage.getItem('aycaKeremLanguage') === 'tr' ? 'tr' : 'en';
   const flags = {
     turkiye: '🇹🇷', mauritius: '🇲🇺', italy: '🇮🇹',
-    georgia: '🇬🇪', austria: '🇦🇹', france: '🇫🇷'
+    georgia: '🇬🇪', austria: '🇦🇹', france: '🇫🇷',
+    cyprus: '🇨🇾', belgium: '🇧🇪', netherlands: '🇳🇱', greece: '🇬🇷'
   };
 
   function openCountry(countryId) {
