@@ -4,7 +4,7 @@
   const panel = document.getElementById('countryPanel');
   if (!shell || !panel || !countries.length) return;
 
-  const lang = () => localStorage.getItem('aycaKeremLanguage') === 'en' ? 'en' : 'tr';
+  const lang = () => localStorage.getItem('aycaKeremLanguage') === 'tr' ? 'tr' : 'en';
   const flags = {
     turkiye: '🇹🇷', mauritius: '🇲🇺', italy: '🇮🇹',
     georgia: '🇬🇪', austria: '🇦🇹', france: '🇫🇷'
