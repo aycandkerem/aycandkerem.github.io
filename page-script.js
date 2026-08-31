@@ -1,5 +1,5 @@
 (() => {
-  const lang = () => localStorage.getItem('aycaKeremLanguage') === 'en' ? 'en' : 'tr';
+  const lang = () => localStorage.getItem('aycaKeremLanguage') === 'tr' ? 'tr' : 'en';
   const applyLanguage = () => {
     const current = lang();
     document.documentElement.lang = current;
