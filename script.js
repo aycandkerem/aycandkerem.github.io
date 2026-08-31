@@ -24,8 +24,7 @@
   addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
 
   const translations = window.SITE_TRANSLATIONS || {};
-  const popup = document.getElementById('languagePopup');
-  const currentLanguage = () => localStorage.getItem('aycaKeremLanguage') === 'en' ? 'en' : 'tr';
+  const currentLanguage = () => localStorage.getItem('aycaKeremLanguage') === 'tr' ? 'tr' : 'en';
   const applyLanguage = language => {
     const lang = language === 'en' ? 'en' : 'tr';
     document.documentElement.lang = lang;
@@ -51,22 +50,11 @@
   };
   const selectLanguage = language => {
     localStorage.setItem('aycaKeremLanguage', language);
-    sessionStorage.setItem('aycaKeremLanguagePromptSeen', 'true');
-    popup?.classList.remove('open');
-    document.body.classList.remove('language-popup-open');
     applyLanguage(language);
   };
   document.querySelectorAll('[data-language]').forEach(button =>
     button.addEventListener('click', () => selectLanguage(button.dataset.language)));
-  document.querySelectorAll('[data-popup-language]').forEach(button =>
-    button.addEventListener('click', () => selectLanguage(button.dataset.popupLanguage)));
   applyLanguage(currentLanguage());
-  if (!sessionStorage.getItem('aycaKeremLanguagePromptSeen')) {
-    requestAnimationFrame(() => {
-      popup?.classList.add('open');
-      document.body.classList.add('language-popup-open');
-    });
-  }
 
   const heroVideo = document.querySelector('.hero-video');
   const showHero = () => heroVideo?.classList.remove('is-loading');
