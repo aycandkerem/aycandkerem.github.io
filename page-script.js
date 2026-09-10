@@ -22,8 +22,44 @@
   }));
   applyLanguage();
 
-  const plannedVideos = (window.PLANNED_VIDEO_DATA || []).filter(item => item.available);
   const videoGrid = document.querySelector('.portfolio-phone-grid');
+  const portfolioFilters = document.querySelector('.portfolio-filters');
+  portfolioFilters?.querySelector('[data-phone-filter="destination"]')?.remove();
+
+  if (videoGrid) {
+    const sourceUpdates = {
+      'assets/videos/portfolio-1.mp4': 'assets/videos/mauritius-hilton-mauritius-resort-and-spa.mp4',
+      'assets/videos/portfolio-4.mp4': 'assets/videos/mauritius-le-chateau-de-bel-ombre.mp4',
+      'assets/videos/portfolio-6.mp4': 'assets/videos/mauritius-heritage-awali-signature-dinner.mp4'
+    };
+    videoGrid.querySelectorAll('video, [data-video]').forEach(element => {
+      const attribute = element.matches('video') ? 'src' : 'data-video';
+      const currentSource = element.getAttribute(attribute);
+      if (sourceUpdates[currentSource]) element.setAttribute(attribute, sourceUpdates[currentSource]);
+    });
+    const heritageCard = [...videoGrid.querySelectorAll('.portfolio-item')]
+      .find(item => item.querySelector('video')?.getAttribute('src') === 'assets/videos/mauritius-heritage-resorts.mp4');
+    if (heritageCard) heritageCard.dataset.category = 'hotel';
+    const lifestyleCard = [...videoGrid.querySelectorAll('.portfolio-item')]
+      .find(item => item.querySelector('h3')?.textContent.trim() === 'Couple Lifestyle');
+    lifestyleCard?.remove();
+
+    const moreWrap = document.createElement('div');
+    moreWrap.className = 'portfolio-more-wrap';
+    const moreButton = document.createElement('button');
+    moreButton.className = 'portfolio-more-button';
+    moreButton.id = 'portfolioMoreButton';
+    moreButton.type = 'button';
+    moreButton.dataset.tr = 'Daha Fazla';
+    moreButton.dataset.en = 'More';
+    moreButton.textContent = lang() === 'en' ? 'More' : 'Daha Fazla';
+    moreButton.setAttribute('aria-controls', 'portfolioVideoGrid');
+    videoGrid.id = 'portfolioVideoGrid';
+    moreWrap.appendChild(moreButton);
+    videoGrid.after(moreWrap);
+  }
+
+  const plannedVideos = (window.PLANNED_VIDEO_DATA || []).filter(item => item.available);
   if (videoGrid && plannedVideos.length) {
     const current = lang();
     plannedVideos.forEach(item => {
@@ -80,14 +116,49 @@
     });
   }));
 
-  document.querySelectorAll('[data-phone-filter]').forEach(button => button.addEventListener('click', () => {
-    document.querySelectorAll('[data-phone-filter]').forEach(item => item.classList.remove('active'));
-    button.classList.add('active');
-    const filter = button.dataset.phoneFilter;
-    document.querySelectorAll('.portfolio-item').forEach(item => {
-      item.hidden = filter !== 'all' && item.dataset.category !== filter;
+  const phoneFilterButtons = [...document.querySelectorAll('[data-phone-filter]')];
+  const portfolioMoreButton = document.getElementById('portfolioMoreButton');
+  const portfolioPageSize = () => matchMedia('(max-width: 820px)').matches ? 10 : 20;
+  let activePhoneFilter = 'all';
+  let visiblePortfolioItems = portfolioPageSize();
+  let lastPortfolioPageSize = portfolioPageSize();
+
+  const updatePortfolioItems = () => {
+    const items = [...document.querySelectorAll('.portfolio-item')];
+    const matchingItems = items.filter(item =>
+      activePhoneFilter === 'all' || item.dataset.category === activePhoneFilter
+    );
+    items.forEach(item => {
+      const matchingIndex = matchingItems.indexOf(item);
+      item.hidden = matchingIndex < 0 || matchingIndex >= visiblePortfolioItems;
     });
+    if (portfolioMoreButton) {
+      portfolioMoreButton.hidden = matchingItems.length <= visiblePortfolioItems;
+      portfolioMoreButton.setAttribute('aria-expanded', String(matchingItems.length <= visiblePortfolioItems));
+    }
+  };
+
+  phoneFilterButtons.forEach(button => button.addEventListener('click', () => {
+    phoneFilterButtons.forEach(item => item.classList.remove('active'));
+    button.classList.add('active');
+    activePhoneFilter = button.dataset.phoneFilter;
+    visiblePortfolioItems = portfolioPageSize();
+    updatePortfolioItems();
   }));
+
+  portfolioMoreButton?.addEventListener('click', () => {
+    visiblePortfolioItems += portfolioPageSize();
+    updatePortfolioItems();
+  });
+
+  addEventListener('resize', () => {
+    const nextPageSize = portfolioPageSize();
+    if (nextPageSize === lastPortfolioPageSize) return;
+    lastPortfolioPageSize = nextPageSize;
+    visiblePortfolioItems = nextPageSize;
+    updatePortfolioItems();
+  });
+  updatePortfolioItems();
 
   const modal = document.getElementById('pageVideoModal');
   const modalVideo = modal?.querySelector('video');
